@@ -29,7 +29,7 @@ export function saveTasks(tasks) {
  */
 export function addTask(task) {
   const tasks = loadTasks()
-  tasks.push(task)
+  tasks.unshift(task)
   saveTasks(tasks)
 }
 

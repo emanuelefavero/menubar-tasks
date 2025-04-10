@@ -80,7 +80,7 @@ function buildContextMenu() {
  */
 function updateTray() {
   const tasks = loadTasks()
-  const last = tasks.at(-1) ?? ''
+  const last = tasks.at(0) || '' // get most recent task
   tray.setTitle(getFirstNCharsNoTruncate(last, 12) || 'No tasks')
   tray.setContextMenu(buildContextMenu())
 }

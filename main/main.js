@@ -5,6 +5,15 @@ import fs from 'fs'
 import { getFirstNCharsNoTruncate } from './utils/text.js'
 import prompt from 'electron-prompt'
 
+// TODO add a delete task option as a task item submenu
+// TODO add an edit task option as a task item submenu
+// TODO add a copy task option as a task item submenu
+// TODO add a mark task as done (by setting enabled: false for greyed out text and an icon to show done or strikethrough text if possible) when clicking on the task item
+// TODO add a settings menu item to open a settings window
+// TODO add max tasks setting to limit the number of tasks shown in the menu
+// TODO add a max characters setting to limit the number of characters the user can input when adding or editing a task
+// TODO add a setting to choose if showing the last task, an icon, the app name "Tasks" in the tray icon
+
 // Global reference to the tray icon
 // TIP: The tray icon is the app icon that appears in the menu bar on macOS
 let tray = null

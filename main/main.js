@@ -24,7 +24,7 @@ function buildContextMenu() {
   const tasks = loadTasks()
 
   // Convert each task into a menu item with numbering
-  const taskItems = tasks.map((task, i) => ({
+  const taskItems = tasks.map((task) => ({
     label: `${task}`,
     // enabled: false, // Tasks are displayed but not clickable
   }))

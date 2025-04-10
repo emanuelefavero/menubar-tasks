@@ -75,8 +75,6 @@ function buildContextMenu() {
 /**
  * Updates the tray icon's title and context menu
  * The title shows the most recent task (truncated to 10 characters)
- *
- * @returns {void}
  */
 function updateTray() {
   const tasks = loadTasks()

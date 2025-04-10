@@ -32,3 +32,13 @@ This is an Electron app for Mac OS that allows you to create, manage and display
 ## Contributing
 
 If you would like to contribute to this project, please fork the repository and create a pull request. All contributions are welcome!
+
+## License
+
+- [MIT](LICENSE.md)
+
+&nbsp;
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#menubar-tasks)

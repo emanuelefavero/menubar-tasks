@@ -14,6 +14,12 @@ export function getFirstNCharsNoTruncate(input, charLimit) {
   if (input < charLimit) return input
 
   let words = input.split(' ')
+
+  // If the first word is longer than charLimit, truncate the word by adding '...'
+  if (words[0].length > charLimit) {
+    return words[0].slice(0, charLimit - 2) + '...'
+  }
+
   let result = ''
 
   for (let word of words) {

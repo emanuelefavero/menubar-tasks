@@ -49,7 +49,6 @@ function buildContextMenu() {
 function updateTray() {
   const tasks = loadTasks()
   const last = tasks.at(-1) ?? ''
-  // tray.setTitle(`${last.slice(0, 12)}` || 'No tasks')
   tray.setTitle(getFirstNCharsNoTruncate(last, 12) || 'No tasks')
   tray.setContextMenu(buildContextMenu())
 }

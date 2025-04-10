@@ -1,5 +1,5 @@
 import { app, Tray, Menu, nativeImage } from 'electron'
-import { addTask, loadTasks } from './tasks.js'
+import { addTask, loadTasks } from './services/tasks.js'
 import path from 'path'
 import fs from 'fs'
 import { getFirstNCharsNoTruncate } from './utils/text.js'

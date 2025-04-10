@@ -2,6 +2,7 @@ import { app, Tray, Menu, nativeImage } from 'electron'
 import { addTask, loadTasks } from './tasks.js'
 import path from 'path'
 import fs from 'fs'
+import { getFirstNCharsNoTruncate } from './utils/text.js'
 
 // Global reference to the tray icon
 // TIP: The tray icon is the app icon that appears in the menu bar on macOS
@@ -48,7 +49,8 @@ function buildContextMenu() {
 function updateTray() {
   const tasks = loadTasks()
   const last = tasks.at(-1) ?? ''
-  tray.setTitle(`${last.slice(0, 12)}` || 'No tasks')
+  // tray.setTitle(`${last.slice(0, 12)}` || 'No tasks')
+  tray.setTitle(getFirstNCharsNoTruncate(last, 12) || 'No tasks')
   tray.setContextMenu(buildContextMenu())
 }
 

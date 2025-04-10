@@ -1,5 +1,5 @@
 import { app, Tray, Menu, nativeImage } from 'electron'
-import { addTask, loadTasks } from './services/tasks.js'
+import { addTask, loadTasks, clearTasks } from './services/tasks.js'
 import path from 'path'
 import fs from 'fs'
 import { getFirstNCharsNoTruncate } from './utils/text.js'
@@ -55,6 +55,15 @@ function buildContextMenu() {
             }
           })
           .catch(console.error)
+      },
+    },
+
+    // Clear option
+    {
+      label: 'Clear',
+      click: () => {
+        clearTasks()
+        updateTray()
       },
     },
 

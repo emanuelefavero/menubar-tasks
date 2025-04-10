@@ -32,3 +32,10 @@ export function addTask(task) {
   tasks.push(task)
   saveTasks(tasks)
 }
+
+/**
+ * Clears all tasks from the list
+ */
+export function clearTasks() {
+  saveTasks([])
+}

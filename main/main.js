@@ -18,13 +18,14 @@ function buildContextMenu() {
 
   // Convert each task into a menu item with numbering
   const taskItems = tasks.map((task, i) => ({
-    label: `${i + 1}. ${task}`,
-    enabled: false, // Tasks are displayed but not clickable
+    label: `${task}`,
+    // enabled: false, // Tasks are displayed but not clickable
   }))
 
   // Add a separator and an option to add a dummy task
   return Menu.buildFromTemplate([
-    { label: 'Tasks:', enabled: false },
+    { label: 'Tasks', enabled: false },
+    { type: 'separator' },
     ...taskItems,
     { type: 'separator' },
     {
@@ -47,7 +48,7 @@ function buildContextMenu() {
 function updateTray() {
   const tasks = loadTasks()
   const last = tasks.at(-1) ?? ''
-  tray.setTitle(last.slice(0, 10) || 'No tasks')
+  tray.setTitle(`${last.slice(0, 12)}` || 'No tasks')
   tray.setContextMenu(buildContextMenu())
 }
 

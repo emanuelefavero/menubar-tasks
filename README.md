@@ -1,6 +1,6 @@
 # MenuBar Tasks
 
-This is an Electron app for Mac OS that allows you to create, manage and display tasks directly in the Mac OS menu bar. It is designed to be minimal, easy to use and lightweight
+This is an Electron app for Mac OS that allows you to create, manage and display tasks directly in the menu bar. It is designed to be minimal, easy to use and lightweight
 
 > Note: Some features are still in development as of this writing, but the core functionality is complete and ready for use
 

@@ -25,6 +25,7 @@
     "vite": "^6.2.5"
   },
   "dependencies": {
+    "electron-prompt": "^1.7.0",
     "electron-squirrel-startup": "^1.0.1"
   },
   "config": {

@@ -3,10 +3,16 @@ import { addTask, loadTasks } from './services/tasks.js'
 import path from 'path'
 import fs from 'fs'
 import { getFirstNCharsNoTruncate } from './utils/text.js'
+import prompt from 'electron-prompt'
 
 // Global reference to the tray icon
 // TIP: The tray icon is the app icon that appears in the menu bar on macOS
 let tray = null
+
+// Prevent the app from quitting when all windows are closed
+app.on('window-all-closed', (e) => {
+  e.preventDefault()
+})
 
 /**
  * Builds and returns the context menu that appears when clicking the tray icon
@@ -23,17 +29,27 @@ function buildContextMenu() {
     // enabled: false, // Tasks are displayed but not clickable
   }))
 
-  // Add a separator and an option to add a dummy task
+  // Add a separator and options to add task or quit
   return Menu.buildFromTemplate([
     { label: 'Tasks', enabled: false },
     { type: 'separator' },
     ...taskItems,
     { type: 'separator' },
     {
-      label: 'Add Dummy Task',
+      label: 'Add Task',
       click: () => {
-        addTask(`Task at ${new Date().toLocaleTimeString()}`)
-        updateTray()
+        prompt({
+          title: 'Add New Task',
+          label: 'Task:',
+          type: 'input',
+        })
+          .then((r) => {
+            if (r !== null) {
+              addTask(r)
+              updateTray()
+            }
+          })
+          .catch(console.error)
       },
     },
     { label: 'Quit', role: 'quit' },

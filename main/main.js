@@ -31,10 +31,15 @@ function buildContextMenu() {
 
   // Add a separator and options to add task or quit
   return Menu.buildFromTemplate([
+    // Title
     { label: 'Tasks', enabled: false },
     { type: 'separator' },
+
+    // Task List
     ...taskItems,
     { type: 'separator' },
+
+    // Add new task option
     {
       label: 'Add Task',
       click: () => {
@@ -52,6 +57,8 @@ function buildContextMenu() {
           .catch(console.error)
       },
     },
+
+    // Quit option
     { label: 'Quit', role: 'quit' },
   ])
 }

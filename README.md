@@ -4,6 +4,10 @@ This is an Electron app for Mac OS that allows you to create, manage and display
 
 > Note: Some features are still in development as of this writing, but the core functionality is complete and ready for use
 
+### Mockup
+
+![mockup](./mockup.webp 'mockup')
+
 ## Features
 
 - Create, edit and delete tasks directly from the menu bar

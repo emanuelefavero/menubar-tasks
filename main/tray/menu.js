@@ -4,6 +4,7 @@ import {
   addTask,
   clearTasks,
   deleteTask,
+  editTask,
 } from '../services/tasks.js'
 import { showPrompt } from '../lib/prompt.js'
 
@@ -21,6 +22,19 @@ export function buildContextMenu(updateTray) {
   const taskItems = tasks.map((task) => ({
     label: `${task}`,
     submenu: [
+      {
+        label: 'Edit',
+        click: () => {
+          showPrompt('Edit Task', task)
+            .then((r) => {
+              if (r !== null) {
+                editTask(task, r)
+                updateTray()
+              }
+            })
+            .catch(console.error)
+        },
+      },
       {
         label: 'Delete',
         click: () => {

@@ -49,3 +49,19 @@ export function deleteTask(taskToDelete) {
   const updatedTasks = tasks.filter((task) => task !== taskToDelete)
   saveTasks(updatedTasks)
 }
+
+/**
+ * Edit a specific task in the list
+ * @param {string} oldTask - The task to edit
+ * @param {string} newTask - The new task value
+ */
+export function editTask(oldTask, newTask) {
+  const tasks = loadTasks()
+  const taskIndex = tasks.indexOf(oldTask)
+  if (taskIndex !== -1) {
+    tasks[taskIndex] = newTask
+    saveTasks(tasks)
+  } else {
+    console.error(`Task "${oldTask}" not found.`)
+  }
+}

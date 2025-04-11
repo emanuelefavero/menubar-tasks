@@ -1,4 +1,4 @@
-import { Menu, clipboard } from 'electron'
+import { Menu, clipboard, Notification } from 'electron'
 import {
   loadTasks,
   addTask,
@@ -46,6 +46,11 @@ export function buildContextMenu(updateTray) {
         label: 'Copy',
         click: () => {
           clipboard.writeText(task)
+          new Notification({
+            title: 'Task Copied 📋',
+            body: task,
+            silent: true,
+          }).show()
         },
       },
     ],

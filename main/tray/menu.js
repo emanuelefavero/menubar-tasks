@@ -1,4 +1,4 @@
-import { Menu } from 'electron'
+import { Menu, clipboard } from 'electron'
 import {
   loadTasks,
   addTask,
@@ -40,6 +40,12 @@ export function buildContextMenu(updateTray) {
         click: () => {
           deleteTask(task)
           updateTray()
+        },
+      },
+      {
+        label: 'Copy',
+        click: () => {
+          clipboard.writeText(task)
         },
       },
     ],

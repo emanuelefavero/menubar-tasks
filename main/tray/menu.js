@@ -45,7 +45,9 @@ export function buildContextMenu(updateTray) {
       {
         label: 'Copy',
         click: () => {
-          clipboard.writeText(task)
+          clipboard.writeText(task) // Copy task to clipboard
+
+          // Show a notification that the task has been copied
           new Notification({
             title: 'Task Copied 📋',
             body: task,

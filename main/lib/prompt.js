@@ -12,5 +12,9 @@ export function showPrompt(title, value = '') {
     label: 'Task:',
     type: 'input',
     value,
+    buttonLabels: {
+      ok: 'Done',
+      cancel: 'Cancel',
+    },
   })
 }

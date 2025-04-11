@@ -45,7 +45,7 @@ export function buildContextMenu(updateTray) {
       {
         label: 'Copy',
         click: () => {
-          clipboard.writeText(task)
+          clipboard.writeText(task) // Copy task to clipboard
         },
       },
     ],

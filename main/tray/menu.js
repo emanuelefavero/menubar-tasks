@@ -5,7 +5,7 @@ import {
   clearTasks,
   deleteTask,
 } from '../services/tasks.js'
-import prompt from 'electron-prompt'
+import { showPrompt } from '../lib/prompt.js'
 
 /**
  * Builds and returns the context menu that appears when clicking the tray icon
@@ -45,11 +45,7 @@ export function buildContextMenu(updateTray) {
     {
       label: 'Add Task',
       click: () => {
-        prompt({
-          title: 'Add New Task',
-          label: 'Task:',
-          type: 'input',
-        })
+        showPrompt('Add New Task')
           .then((r) => {
             if (r !== null) {
               addTask(r)

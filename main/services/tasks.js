@@ -46,6 +46,6 @@ export function clearTasks() {
  */
 export function deleteTask(taskToDelete) {
   const tasks = loadTasks()
-  const updatedTasks = tasks.filter(task => task !== taskToDelete)
+  const updatedTasks = tasks.filter((task) => task !== taskToDelete)
   saveTasks(updatedTasks)
 }

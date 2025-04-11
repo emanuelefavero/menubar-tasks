@@ -1,5 +1,5 @@
 import { Menu } from 'electron'
-import { loadTasks, addTask, clearTasks } from '../services/tasks.js'
+import { loadTasks, addTask, clearTasks, deleteTask } from '../services/tasks.js'
 import prompt from 'electron-prompt'
 
 /**
@@ -12,10 +12,16 @@ import prompt from 'electron-prompt'
 export function buildContextMenu(updateTray) {
   const tasks = loadTasks()
 
-  // Convert each task into a menu item with numbering
+  // Convert each task into a menu item with submenu containing delete option
   const taskItems = tasks.map((task) => ({
     label: `${task}`,
-    // enabled: false, // Tasks are displayed but not clickable
+    submenu: [{
+      label: 'Delete',
+      click: () => {
+        deleteTask(task)
+        updateTray()
+      }
+    }]
   }))
 
   // Add a separator and options to add task or quit

@@ -39,3 +39,13 @@ export function addTask(task) {
 export function clearTasks() {
   saveTasks([])
 }
+
+/**
+ * Deletes a specific task from the list
+ * @param {string} taskToDelete - The task to delete
+ */
+export function deleteTask(taskToDelete) {
+  const tasks = loadTasks()
+  const updatedTasks = tasks.filter(task => task !== taskToDelete)
+  saveTasks(updatedTasks)
+}

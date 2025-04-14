@@ -67,42 +67,56 @@
 div#container {
   background-color: var(--background);
   color: var(--foreground);
+  padding: 1rem;
 
-  & div#label {
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
+  form#form {
+    padding: 0;
 
-  & button#cancel,
-  & button#ok {
-    min-width: 4rem;
-    padding: 0.25rem 0.55rem;
-    border-radius: 0.3rem;
-    border: none;
-    box-shadow: var(--button-shadow);
-  }
-
-  & button#cancel {
-    background-color: var(--button);
-    color: var(--foreground);
-    border-top: var(--button-border-top);
-    border-bottom: var(--button-border-bottom);
-
-    &:active {
-      background-color: var(--button-active);
-      border-top: var(--button-border-top-active);
+    & div#label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0;
     }
-  }
 
-  & button#ok {
-    background: var(--button-primary);
-    color: var(--button-primary-text);
-    border-top: var(--button-primary-border-top);
-    border-bottom: var(--button-primary-border-bottom);
+    & input#data {
+      width: 100%;
+    }
 
-    &:active {
-      background: var(--button-primary-active);
-      border-top: var(--button-primary-border-top-active);
+    & div#buttons {
+      padding: 0;
+
+      & button#cancel,
+      & button#ok {
+        min-width: 4rem;
+        padding: 0.25rem 0.55rem;
+        border-radius: 0.3rem;
+        border: none;
+        box-shadow: var(--button-shadow);
+      }
+
+      & button#cancel {
+        background-color: var(--button);
+        color: var(--foreground);
+        border-top: var(--button-border-top);
+        border-bottom: var(--button-border-bottom);
+
+        &:active {
+          background-color: var(--button-active);
+          border-top: var(--button-border-top-active);
+        }
+      }
+
+      & button#ok {
+        background: var(--button-primary);
+        color: var(--button-primary-text);
+        border-top: var(--button-primary-border-top);
+        border-bottom: var(--button-primary-border-bottom);
+
+        &:active {
+          background: var(--button-primary-active);
+          border-top: var(--button-primary-border-top-active);
+        }
+      }
     }
   }
 }

@@ -23,5 +23,6 @@ export function showPrompt(title, value = '') {
       cancel: 'Cancel',
     },
     resizable: true,
+    height: 130,
   })
 }

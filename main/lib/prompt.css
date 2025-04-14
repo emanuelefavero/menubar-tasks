@@ -71,6 +71,7 @@ div#container {
 
   form#form {
     padding: 0;
+    max-width: 65ch;
 
     & div#label {
       font-size: 0.875rem;

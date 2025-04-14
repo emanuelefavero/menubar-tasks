@@ -22,5 +22,6 @@ export function showPrompt(title, value = '') {
       ok: 'Done',
       cancel: 'Cancel',
     },
+    resizable: true,
   })
 }

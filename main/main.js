@@ -1,8 +1,9 @@
 import { app } from 'electron'
 import { initializeTray } from './tray/tray.js'
 
-// TODO make sure to remove `resizable: true` from the prompt window
 // TODO avoid adding a task with an empty string
+// TODO add a submenu to the clear tasks menu item to prevent accidental deletion of all tasks
+// TODO add cryptography to encrypt the tasks when storing them in the file
 // TODO add a mark task as done (by setting enabled: false for greyed out text and an icon to show done or strikethrough text if possible) when clicking on the task item
 // TODO add a settings menu item to open a settings window
 // TODO add max tasks setting to limit the number of tasks shown in the menu

@@ -8,18 +8,28 @@
   --background: rgb(234, 235, 237);
   --foreground: rgb(39, 39, 39);
 
+  /* BUTTON */
   --button: #fff;
   --button-border-top: 1px solid rgb(219, 220, 222);
   --button-border-bottom: 1px solid rgb(194, 195, 197);
   --button-shadow: 0 0 0 1px rgb(228, 228, 230);
-  --button-primary: rgb(59, 130, 247);
+  --button-primary: linear-gradient(
+    180deg,
+    rgb(72, 142, 247),
+    rgb(51, 121, 246)
+  );
   --button-primary-text: rgb(252, 253, 255);
   --button-primary-border-top: 1px solid rgb(73, 143, 247);
   --button-primary-border-bottom: 1px solid rgb(51, 121, 246);
 
+  /* BUTTON ACTIVE */
   --button-active: rgb(240, 240, 240);
   --button-border-top-active: 1px solid rgb(219, 220, 222);
-  --button-primary-active: rgb(48, 112, 227);
+  --button-primary-active: linear-gradient(
+    180deg,
+    rgb(57, 123, 227),
+    rgb(41, 101, 227)
+  );
   --button-primary-border-top-active: 1px solid rgb(56, 122, 227);
 }
 
@@ -28,18 +38,28 @@
     --background: rgb(37, 39, 42);
     --foreground: rgb(222, 222, 223);
 
+    /* BUTTON */
     --button: rgb(92, 93, 95);
     --button-border-top: 1px solid rgb(111, 113, 114);
     --button-border-bottom: 1px solid rgb(31, 33, 35);
     --button-shadow: 0 0 0 1px rgb(35, 37, 40);
-    --button-primary: rgb(47, 99, 210);
+    --button-primary: linear-gradient(
+      180deg,
+      rgb(49, 104, 222),
+      rgb(42, 93, 198)
+    );
     --button-primary-text: rgb(221, 229, 247);
     --button-primary-border-top: 1px solid rgb(81, 131, 228);
     --button-primary-border-bottom: 1px solid rgb(23, 24, 27);
 
+    /* BUTTON ACTIVE */
     --button-active: rgb(116, 117, 119);
     --button-border-top-active: 1px solid rgb(134, 135, 136);
-    --button-primary-active: rgb(74, 152, 229);
+    --button-primary-active: linear-gradient(
+      180deg,
+      rgb(78, 158, 235),
+      rgb(70, 145, 223)
+    );
     --button-primary-border-top-active: 1px solid rgb(104, 176, 240);
   }
 }
@@ -70,13 +90,13 @@ div#container {
   }
 
   & button#ok {
-    background-color: var(--button-primary);
+    background: var(--button-primary);
     color: var(--button-primary-text);
     border-top: var(--button-primary-border-top);
     border-bottom: var(--button-primary-border-bottom);
 
     &:active {
-      background-color: var(--button-primary-active);
+      background: var(--button-primary-active);
       border-top: var(--button-primary-border-top-active);
     }
   }

@@ -5,9 +5,10 @@
 }
 
 :root {
-  --background: #fff;
+  --background: rgb(234, 235, 237);
   --foreground: rgb(39, 39, 39);
-  --button: var(--background);
+
+  --button: #fff;
   --button-border-top: 1px solid rgb(219, 220, 222);
   --button-border-bottom: 1px solid rgb(194, 195, 197);
   --button-shadow: 0 0 0 1px rgb(228, 228, 230);
@@ -15,12 +16,18 @@
   --button-primary-text: rgb(252, 253, 255);
   --button-primary-border-top: 1px solid rgb(73, 143, 247);
   --button-primary-border-bottom: 1px solid rgb(51, 121, 246);
+
+  --button-active: rgb(240, 240, 240);
+  --button-border-top-active: 1px solid rgb(219, 220, 222);
+  --button-primary-active: rgb(48, 112, 227);
+  --button-primary-border-top-active: 1px solid rgb(56, 122, 227);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: rgb(37, 39, 42);
     --foreground: rgb(222, 222, 223);
+
     --button: rgb(92, 93, 95);
     --button-border-top: 1px solid rgb(111, 113, 114);
     --button-border-bottom: 1px solid rgb(31, 33, 35);
@@ -29,6 +36,11 @@
     --button-primary-text: rgb(221, 229, 247);
     --button-primary-border-top: 1px solid rgb(81, 131, 228);
     --button-primary-border-bottom: 1px solid rgb(23, 24, 27);
+
+    --button-active: rgb(116, 117, 119);
+    --button-border-top-active: 1px solid rgb(134, 135, 136);
+    --button-primary-active: rgb(74, 152, 229);
+    --button-primary-border-top-active: 1px solid rgb(104, 176, 240);
   }
 }
 
@@ -45,12 +57,16 @@ div#container {
     box-shadow: var(--button-shadow);
   }
 
-  /* TODO add active state to buttons (change colors) */
   & button#cancel {
     background-color: var(--button);
     color: var(--foreground);
     border-top: var(--button-border-top);
     border-bottom: var(--button-border-bottom);
+
+    &:active {
+      background-color: var(--button-active);
+      border-top: var(--button-border-top-active);
+    }
   }
 
   & button#ok {
@@ -58,5 +74,10 @@ div#container {
     color: var(--button-primary-text);
     border-top: var(--button-primary-border-top);
     border-bottom: var(--button-primary-border-bottom);
+
+    &:active {
+      background-color: var(--button-primary-active);
+      border-top: var(--button-primary-border-top-active);
+    }
   }
 }

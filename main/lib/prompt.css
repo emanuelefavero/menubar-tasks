@@ -80,18 +80,18 @@
   }
 }
 
-div#container {
+#container {
   background-color: var(--background);
   color: var(--foreground);
   padding: 1rem;
 
-  form#form {
+  #form {
     padding: 0;
     max-width: 65ch;
     display: flex;
     flex-direction: column;
 
-    & div#label {
+    & #label {
       font-size: 0.875rem;
       font-weight: 600;
       padding: 0;
@@ -114,7 +114,7 @@ div#container {
       }
     }
 
-    & div#buttons {
+    & #buttons {
       padding: 0;
       margin: 0;
       margin-top: 1.25rem;

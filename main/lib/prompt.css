@@ -13,6 +13,9 @@
   --input-border: 1px solid rgb(215, 216, 217);
   --input-border-bottom: var(--input-border);
 
+  /* INPUT FOCUS */
+  --input-focus-outline: 3px solid rgb(132, 163, 230);
+
   /* BUTTON */
   --button: #fff;
   --button-border-top: 1px solid rgb(219, 220, 222);
@@ -47,6 +50,9 @@
     --input: rgb(49, 51, 53);
     --input-border: 1px solid rgb(56, 58, 60);
     --input-border-bottom: 1px solid rgb(79, 83, 84);
+
+    /* INPUT FOCUS */
+    --input-focus-outline: 3px solid rgb(57, 103, 144);
 
     /* BUTTON */
     --button: rgb(92, 93, 95);
@@ -101,6 +107,11 @@ div#container {
       color: var(--foreground);
       border: var(--input-border);
       border-bottom: var(--input-border-bottom);
+      outline: none;
+
+      &:focus {
+        outline: var(--input-focus-outline);
+      }
     }
 
     & div#buttons {

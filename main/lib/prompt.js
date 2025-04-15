@@ -22,6 +22,6 @@ export function showPrompt(title, value = '') {
       ok: 'Done',
       cancel: 'Cancel',
     },
-    height: 130,
+    height: 162,
   })
 }

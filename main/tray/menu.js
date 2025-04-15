@@ -85,18 +85,20 @@ export function buildContextMenu(updateTray) {
     },
 
     // Clear option
-    {
-      label: 'Clear',
-      submenu: [
-        {
-          label: 'Clear All',
-          click: () => {
-            clearTasks()
-            updateTray()
-          },
-        },
-      ],
-    },
+    tasks.length > 0
+      ? {
+          label: 'Clear',
+          submenu: [
+            {
+              label: 'Clear All',
+              click: () => {
+                clearTasks()
+                updateTray()
+              },
+            },
+          ],
+        }
+      : { label: 'Clear', enabled: false }, // Disable if no tasks
 
     // Quit option
     { label: 'Quit', role: 'quit' },

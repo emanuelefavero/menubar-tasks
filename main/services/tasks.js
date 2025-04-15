@@ -1,6 +1,7 @@
 import { app } from 'electron'
 import fs from 'fs'
 import path from 'path'
+import { encryptData, decryptData } from '../utils/crypto.js'
 
 // Path to the JSON file where tasks are persisted in the user's data directory
 const TASKS_FILE = path.join(app.getPath('userData'), 'tasks.json')
@@ -12,7 +13,9 @@ const TASKS_FILE = path.join(app.getPath('userData'), 'tasks.json')
  */
 export function loadTasks() {
   if (!fs.existsSync(TASKS_FILE)) return []
-  return JSON.parse(fs.readFileSync(TASKS_FILE))
+  const base64 = fs.readFileSync(TASKS_FILE, 'utf8')
+  const decrypted = decryptData(base64)
+  return JSON.parse(decrypted)
 }
 
 /**
@@ -20,7 +23,9 @@ export function loadTasks() {
  * @param {Array} tasks - Array of tasks to save
  */
 export function saveTasks(tasks) {
-  fs.writeFileSync(TASKS_FILE, JSON.stringify(tasks, null, 2))
+  const json = JSON.stringify(tasks, null, 2)
+  const base64 = encryptData(json)
+  fs.writeFileSync(TASKS_FILE, base64)
 }
 
 /**

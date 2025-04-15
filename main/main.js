@@ -1,7 +1,6 @@
 import { app } from 'electron'
 import { initializeTray } from './tray/tray.js'
 
-// TODO add cryptography to encrypt the tasks when storing them in the file
 // TODO add a mark task as done (by setting enabled: false for greyed out text and an icon to show done or strikethrough text if possible) when clicking on the task item
 // TODO add a settings menu item to open a settings window
 // TODO add max tasks setting to limit the number of tasks shown in the menu

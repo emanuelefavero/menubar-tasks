@@ -27,8 +27,11 @@ export function buildContextMenu(updateTray) {
         click: () => {
           showPrompt('Edit Task', task)
             .then((r) => {
-              if (r !== null) {
+              if (r !== null && r.trim() !== '') {
                 editTask(task, r)
+                updateTray()
+              } else {
+                deleteTask(task) // Delete task if empty string is returned
                 updateTray()
               }
             })
@@ -67,7 +70,7 @@ export function buildContextMenu(updateTray) {
       click: () => {
         showPrompt('Add New Task')
           .then((r) => {
-            if (r !== null) {
+            if (r !== null && r.trim() !== '') {
               addTask(r)
               updateTray()
             }

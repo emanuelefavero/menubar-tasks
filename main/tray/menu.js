@@ -87,10 +87,15 @@ export function buildContextMenu(updateTray) {
     // Clear option
     {
       label: 'Clear',
-      click: () => {
-        clearTasks()
-        updateTray()
-      },
+      submenu: [
+        {
+          label: 'Clear All',
+          click: () => {
+            clearTasks()
+            updateTray()
+          },
+        },
+      ],
     },
 
     // Quit option

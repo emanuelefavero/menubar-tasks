@@ -30,11 +30,14 @@ export function saveTasks(tasks) {
 
 /**
  * Adds a new task to the existing list
- * @param {string} task - The task to add
+ * @param {string} taskText - The task text to add
  */
-export function addTask(task) {
+export function addTask(taskText) {
   const tasks = loadTasks()
-  tasks.unshift(task)
+  tasks.unshift({
+    text: taskText,
+    done: false,
+  })
   saveTasks(tasks)
 }
 
@@ -47,26 +50,47 @@ export function clearTasks() {
 
 /**
  * Deletes a specific task from the list
- * @param {string} taskToDelete - The task to delete
+ * @param {string} taskText - The text of the task to delete
  */
-export function deleteTask(taskToDelete) {
+export function deleteTask(taskText) {
   const tasks = loadTasks()
-  const updatedTasks = tasks.filter((task) => task !== taskToDelete)
+  const updatedTasks = tasks.filter((task) => task.text !== taskText)
   saveTasks(updatedTasks)
 }
 
 /**
  * Edit a specific task in the list
- * @param {string} oldTask - The task to edit
- * @param {string} newTask - The new task value
+ * @param {string} oldText - The text of the task to edit
+ * @param {string} newText - The new task text value
  */
-export function editTask(oldTask, newTask) {
+export function editTask(oldText, newText) {
   const tasks = loadTasks()
-  const taskIndex = tasks.indexOf(oldTask)
+  const taskIndex = tasks.findIndex((task) => task.text === oldText)
   if (taskIndex !== -1) {
-    tasks[taskIndex] = newTask
+    tasks[taskIndex] = {
+      ...tasks[taskIndex],
+      text: newText,
+    }
     saveTasks(tasks)
   } else {
-    console.error(`Task "${oldTask}" not found.`)
+    console.error(`Task "${oldText}" not found.`)
+  }
+}
+
+/**
+ * Toggle the done status of a task
+ * @param {string} taskText - The text of the task to toggle
+ */
+export function toggleTaskDone(taskText) {
+  const tasks = loadTasks()
+  const taskIndex = tasks.findIndex((task) => task.text === taskText)
+  if (taskIndex !== -1) {
+    tasks[taskIndex] = {
+      ...tasks[taskIndex],
+      done: !tasks[taskIndex].done,
+    }
+    saveTasks(tasks)
+  } else {
+    console.error(`Task "${taskText}" not found.`)
   }
 }

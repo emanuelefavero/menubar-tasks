@@ -20,11 +20,18 @@ export function initializeTray() {
 
 /**
  * Updates the tray icon's title and context menu
- * The title shows the most recent task (truncated to 12 characters)
+ * The title shows the most recent task with its completion status (truncated to 12 characters)
  */
 function updateTray() {
   const tasks = loadTasks()
-  const last = tasks.at(0) || '' // get most recent task
-  tray.setTitle(getFirstNCharsNoTruncate(last, 12) || 'No tasks')
+  const lastTask = tasks.at(0)
+  let title = 'No tasks'
+
+  if (lastTask) {
+    const status = lastTask.done ? '✅ ' : ''
+    title = getFirstNCharsNoTruncate(status + lastTask.text, 12)
+  }
+
+  tray.setTitle(title)
   tray.setContextMenu(buildContextMenu(updateTray))
 }

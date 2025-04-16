@@ -5,8 +5,10 @@ import {
   clearTasks,
   deleteTask,
   editTask,
+  toggleTaskDone,
 } from '../services/tasks.js'
 import { showPrompt } from '../lib/prompt.js'
+import { strikethrough } from '../utils/text.js'
 
 /**
  * Builds and returns the context menu that appears when clicking the tray icon
@@ -20,18 +22,29 @@ export function buildContextMenu(updateTray) {
 
   // Convert each task into a menu item with submenu containing delete option
   const taskItems = tasks.map((task) => ({
-    label: `${task}`,
+    label: task.done ? `✅ ${strikethrough(task.text)}` : `◻️ ${task.text}`,
+    click: () => {
+      toggleTaskDone(task.text)
+      updateTray()
+    },
     submenu: [
+      {
+        label: task.done ? 'Mark as Undone' : 'Mark as Done',
+        click: () => {
+          toggleTaskDone(task.text)
+          updateTray()
+        },
+      },
       {
         label: 'Edit',
         click: () => {
-          showPrompt('Edit Task', task)
+          showPrompt('Edit Task', task.text)
             .then((r) => {
               if (r !== null) {
                 if (r.trim() === '') {
-                  deleteTask(task) // Delete task if empty
+                  deleteTask(task.text) // Delete task if empty
                 } else {
-                  editTask(task, r)
+                  editTask(task.text, r)
                 }
 
                 updateTray()
@@ -43,14 +56,14 @@ export function buildContextMenu(updateTray) {
       {
         label: 'Delete',
         click: () => {
-          deleteTask(task)
+          deleteTask(task.text)
           updateTray()
         },
       },
       {
         label: 'Copy',
         click: () => {
-          clipboard.writeText(task) // Copy task to clipboard
+          clipboard.writeText(task.text) // Copy task to clipboard
         },
       },
     ],

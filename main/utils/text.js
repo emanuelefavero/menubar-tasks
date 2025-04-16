@@ -32,3 +32,20 @@ export function getFirstNCharsNoTruncate(input, charLimit) {
 
   return result
 }
+
+/**
+ * This function takes a string and returns it with a strikethrough effect using combining characters.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+
+export function strikethrough(text) {
+  return (
+    text
+      .split('')
+      .map((char) => char + '\u0336')
+      // ? \u0336 is the combining long stroke overlay
+      .join('')
+  )
+}

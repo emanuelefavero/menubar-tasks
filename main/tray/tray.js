@@ -29,7 +29,7 @@ function updateTray() {
 
   if (lastTask) {
     const status = lastTask.done ? '✅ ' : ''
-    title = getFirstNCharsNoTruncate(status + lastTask.text, 12)
+    title = status + getFirstNCharsNoTruncate(lastTask.text, 12)
   }
 
   tray.setTitle(title)

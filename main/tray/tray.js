@@ -28,8 +28,10 @@ function updateTray() {
   let title = 'No tasks'
 
   if (lastTask) {
-    const status = lastTask.done ? '✅ ' : ''
-    title = status + getFirstNCharsNoTruncate(lastTask.text, 12)
+    const { done } = lastTask
+    const status = done ? '✅ ' : ''
+    const charLimit = done ? 9 : 12
+    title = status + getFirstNCharsNoTruncate(lastTask.text, charLimit)
   }
 
   tray.setTitle(title)

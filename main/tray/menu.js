@@ -23,10 +23,6 @@ export function buildContextMenu(updateTray) {
   // Convert each task into a menu item with submenu containing delete option
   const taskItems = tasks.map((task) => ({
     label: task.done ? `✅ ${strikethrough(task.text)}` : `◻️ ${task.text}`,
-    click: () => {
-      toggleTaskDone(task.text)
-      updateTray()
-    },
     submenu: [
       {
         label: task.done ? 'Mark as Undone' : 'Mark as Done',

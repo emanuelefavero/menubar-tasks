@@ -88,9 +88,10 @@ textarea {
 
 select {
   appearance: none;
-  width: 100%;
   margin: 0;
-  padding: 0.35rem 0.35rem;
+  padding: 0.15rem;
+  padding-left: 0.7rem;
+  padding-right: 22px;
   margin-top: 0.375rem;
   border-radius: 0.43rem;
   background-color: var(--background);
@@ -101,10 +102,8 @@ select {
   /* Select Icon */
   background-image: var(--select-icon);
   background-repeat: no-repeat;
-  background-position: calc(100% - 1px) 5px;
+  background-position: calc(100% - 1px) 2.5px;
   background-size: 18px;
-  image-rendering: auto;
-  background-blend-mode: normal;
 }
 
 select:hover {

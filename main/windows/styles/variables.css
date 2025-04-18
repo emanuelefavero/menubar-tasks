@@ -39,6 +39,11 @@
   --switch-slider: #fff;
   --switch-active: rgb(48, 111, 227);
   --switch-off-active: rgb(193, 194, 195);
+
+  /* SELECT */
+  --select-hover: #fff;
+  --select-border: 1px solid rgb(215, 216, 218);
+  --select-border-bottom: 1px solid rgb(191, 191, 193);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,5 +88,10 @@
     --switch-slider: rgb(201, 202, 202);
     --switch-active: rgb(75, 151, 229);
     --switch-off-active: rgb(75, 76, 78);
+
+    /* SELECT */
+    --select-hover: rgb(94, 95, 98);
+    --select-border: 1px solid rgb(113, 114, 116);
+    --select-border-bottom: 1px solid rgb(34, 35, 38);
   }
 }

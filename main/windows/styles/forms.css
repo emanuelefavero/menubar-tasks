@@ -40,12 +40,20 @@ textarea {
       width: 0;
       height: 0;
 
+      &:active + .slider {
+        background-color: var(--switch-active);
+      }
+
       &:checked + .slider {
         background: var(--switch);
       }
 
       &:checked + .slider:before {
         transform: translateX(11px);
+      }
+
+      &:checked:active + .slider {
+        background-color: var(--switch-active);
       }
     }
 

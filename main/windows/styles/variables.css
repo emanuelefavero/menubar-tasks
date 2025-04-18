@@ -37,6 +37,8 @@
   --switch: linear-gradient(0deg, rgb(52, 120, 243), rgb(70, 139, 244));
   --switch-off: rgb(207, 207, 208);
   --switch-slider: #fff;
+  --switch-active: rgb(48, 111, 227);
+  --switch-off-active: rgb(193, 194, 195);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,5 +81,7 @@
     --switch: linear-gradient(0deg, rgb(45, 93, 199), rgb(50, 103, 221));
     --switch-off: rgb(62, 64, 66);
     --switch-slider: rgb(201, 202, 202);
+    --switch-active: rgb(75, 151, 229);
+    --switch-off-active: rgb(75, 76, 78);
   }
 }

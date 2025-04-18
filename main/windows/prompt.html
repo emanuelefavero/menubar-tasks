@@ -92,103 +92,95 @@
       }
 
       body {
-        background-color: var(--background);
-        color: var(--foreground);
-      }
-
-      #form {
         font-family: -apple-system, system-ui, BlinkMacSystemFont, 'SF Pro',
           'San Francisco Pro', 'Helvetica Neue', Helvetica, sans-serif;
         background-color: var(--background);
         color: var(--foreground);
         padding: 1rem;
-        max-width: 65ch;
         display: flex;
         flex-direction: column;
+      }
 
-        & #label {
-          font-size: 0.875rem;
-          font-weight: 600;
-          padding: 0;
-          margin: 0;
-          margin-bottom: 0.2rem;
+      label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 0.2rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        margin: 0;
+        padding: 0.35rem 0.35rem;
+        margin-top: 0.375rem;
+        border-radius: 0.43rem;
+        background-color: var(--input);
+        color: var(--foreground);
+        border: var(--input-border);
+        border-bottom: var(--input-border-bottom);
+        outline: none;
+
+        &:focus {
+          outline: var(--input-focus-outline);
         }
 
-        & input#taskInput {
-          width: 100%;
+        &::placeholder {
+          color: var(--input-placeholder);
+        }
+      }
+
+      .button-container {
+        padding: 0;
+        margin: 0;
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 0.625rem;
+
+        & button {
+          min-width: 4rem;
+          padding: 0.25rem 0.55rem;
+          border-radius: 0.3rem;
+          border: none;
           margin: 0;
-          padding: 0.35rem 0.35rem;
-          margin-top: 0.375rem;
-          border-radius: 0.43rem;
-          background-color: var(--input);
+          box-shadow: var(--button-shadow);
+        }
+
+        & button.secondary {
+          background-color: var(--button);
           color: var(--foreground);
-          border: var(--input-border);
-          border-bottom: var(--input-border-bottom);
-          outline: none;
+          border-top: var(--button-border-top);
+          border-bottom: var(--button-border-bottom);
 
-          &:focus {
-            outline: var(--input-focus-outline);
-          }
-
-          &::placeholder {
-            color: var(--input-placeholder);
+          &:active {
+            background-color: var(--button-active);
+            border-top: var(--button-border-top-active);
           }
         }
 
-        & .button-container {
-          padding: 0;
-          margin: 0;
-          margin-top: 1.25rem;
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-end;
-          gap: 0.625rem;
+        & button.primary {
+          background: var(--button-primary);
+          color: var(--button-primary-text);
+          border-top: var(--button-primary-border-top);
+          border-bottom: var(--button-primary-border-bottom);
 
-          & button#cancel,
-          & button#ok {
-            min-width: 4rem;
-            padding: 0.25rem 0.55rem;
-            border-radius: 0.3rem;
-            border: none;
-            margin: 0;
-            box-shadow: var(--button-shadow);
-          }
-
-          & button#cancel {
-            background-color: var(--button);
-            color: var(--foreground);
-            border-top: var(--button-border-top);
-            border-bottom: var(--button-border-bottom);
-
-            &:active {
-              background-color: var(--button-active);
-              border-top: var(--button-border-top-active);
-            }
-          }
-
-          & button#ok {
-            background: var(--button-primary);
-            color: var(--button-primary-text);
-            border-top: var(--button-primary-border-top);
-            border-bottom: var(--button-primary-border-bottom);
-
-            &:active {
-              background: var(--button-primary-active);
-              border-top: var(--button-primary-border-top-active);
-            }
+          &:active {
+            background: var(--button-primary-active);
+            border-top: var(--button-primary-border-top-active);
           }
         }
       }
     </style>
   </head>
   <body>
-    <div id="form">
-      <label for="taskInput" id="label"></label>
-      <input type="text" id="taskInput" placeholder="Task" autofocus />
-      <div class="button-container">
-        <button id="cancel">Cancel</button>
-        <button id="ok">Done</button>
-      </div>
+    <label for="taskInput" id="label"></label>
+    <input type="text" id="taskInput" placeholder="Task" autofocus />
+    <div class="button-container">
+      <button class="secondary" id="cancel">Cancel</button>
+      <button class="primary" id="ok">Done</button>
     </div>
 
     <script>

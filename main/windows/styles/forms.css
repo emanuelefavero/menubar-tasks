@@ -99,34 +99,14 @@ select {
   outline: none;
 }
 
+select:hover {
+  background-color: var(--input);
+}
+
 select:focus {
-  outline: var(--input-focus-outline);
+  outline: none;
 }
 
 select:focus-visible {
-  outline: var(--input-focus-outline);
-}
-
-select::placeholder {
-  color: var(--input-placeholder);
-}
-
-select option {
-  background-color: var(--input);
-  color: var(--foreground);
-}
-
-select option:focus {
-  background-color: var(--input-focus-outline);
-  color: var(--foreground);
-}
-
-select option:active {
-  background-color: var(--input-focus-outline);
-  color: var(--foreground);
-}
-
-select option:checked {
-  background-color: var(--input-focus-outline);
-  color: var(--foreground);
+  outline: none;
 }

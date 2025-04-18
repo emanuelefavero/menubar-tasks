@@ -6,6 +6,7 @@ const settingsPath = path.join(app.getPath('userData'), 'settings.json')
 
 const defaultSettings = {
   showUndoneIcon: true,
+  maxTasks: 33, // Default to non-scrolling amount
 }
 
 export function loadSettings() {

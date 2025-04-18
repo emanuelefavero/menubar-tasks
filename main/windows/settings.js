@@ -13,7 +13,7 @@ export function createSettingsWindow() {
 
   settingsWindow = new BrowserWindow({
     width: 400,
-    height: 170,
+    height: 220, // Increased height to fit new control
     title: 'Settings',
     minimizable: false,
     maximizable: false,

@@ -17,6 +17,14 @@
           >Show checkbox icon (◻️) for undone tasks</span
         >
       </label>
+
+      <div>
+        <label for="maxTasks">Maximum number of tasks</label>
+        <select id="maxTasks">
+          <option value="33">33 (No scrolling needed)</option>
+          <option value="100">100 (With scrolling)</option>
+        </select>
+      </div>
     </div>
 
     <div class="buttons-container">
@@ -31,6 +39,8 @@
         ipcRenderer.invoke('get-settings').then((settings) => {
           document.getElementById('showUndoneIcon').checked =
             settings.showUndoneIcon
+          document.getElementById('maxTasks').value =
+            settings.maxTasks.toString()
         })
       })
 
@@ -38,6 +48,7 @@
       document.getElementById('saveButton').addEventListener('click', () => {
         const settings = {
           showUndoneIcon: document.getElementById('showUndoneIcon').checked,
+          maxTasks: parseInt(document.getElementById('maxTasks').value, 10),
         }
 
         ipcRenderer.invoke('save-settings', settings).then(() => {

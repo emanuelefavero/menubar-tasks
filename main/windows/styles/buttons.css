@@ -14,6 +14,11 @@
     border: none;
     margin: 0;
     box-shadow: var(--button-shadow);
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   & button.secondary {

@@ -35,25 +35,23 @@ textarea {
     height: 15px;
     flex-shrink: 0;
 
+    &:active {
+      opacity: 0.8;
+    }
+
     & input {
       opacity: 0;
       width: 0;
       height: 0;
 
-      &:active + .slider {
-        background-color: var(--switch-active);
-      }
-
+      /* Switch checked state */
       &:checked + .slider {
         background: var(--switch);
       }
 
+      /* Switch slider circle movement when checked */
       &:checked + .slider:before {
         transform: translateX(11px);
-      }
-
-      &:checked:active + .slider {
-        background-color: var(--switch-active);
       }
     }
 
@@ -65,7 +63,7 @@ textarea {
       right: 0;
       bottom: 0;
       background-color: var(--switch-off);
-      transition: 0.3s;
+      transition: 0.25s;
       border-radius: 34px;
 
       &:before {
@@ -76,7 +74,7 @@ textarea {
         left: 1px;
         bottom: 1px;
         background-color: var(--switch-slider);
-        transition: 0.4s;
+        transition: 0.25s;
         border-radius: 50%;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
       }

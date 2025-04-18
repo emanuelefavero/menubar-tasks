@@ -8,7 +8,7 @@ import {
   toggleTaskDone,
 } from '../services/tasks.js'
 import { loadSettings } from '../services/settings.js'
-import { showPrompt } from '../lib/prompt.js'
+import { createPromptWindow } from '../windows/prompt.js'
 import { strikethrough } from '../utils/text.js'
 import { createSettingsWindow } from '../windows/settings.js'
 
@@ -41,7 +41,7 @@ export function buildContextMenu(updateTray) {
       {
         label: 'Edit',
         click: () => {
-          showPrompt('Edit Task', task.text)
+          createPromptWindow('Edit Task', task.text)
             .then((r) => {
               if (r !== null) {
                 if (r.trim() === '') {
@@ -86,13 +86,10 @@ export function buildContextMenu(updateTray) {
     {
       label: 'Add Task',
       click: () => {
-        showPrompt('Add New Task')
+        createPromptWindow()
           .then((r) => {
-            if (r !== null) {
-              if (r.trim() !== '') {
-                addTask(r) // Add task if not empty
-              }
-
+            if (r !== null && r.trim() !== '') {
+              addTask(r)
               updateTray()
             }
           })

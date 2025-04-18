@@ -41,7 +41,7 @@ textarea {
       height: 0;
 
       &:checked + .slider {
-        background-color: #4cd964;
+        background: var(--switch);
       }
 
       &:checked + .slider:before {
@@ -56,7 +56,7 @@ textarea {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #c6c6c6;
+      background-color: var(--switch-off);
       transition: 0.4s;
       border-radius: 34px;
 
@@ -67,7 +67,7 @@ textarea {
         width: 18px;
         left: 3px;
         bottom: 3px;
-        background-color: white;
+        background-color: var(--switch-slider);
         transition: 0.4s;
         border-radius: 50%;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);

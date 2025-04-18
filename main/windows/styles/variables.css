@@ -32,6 +32,11 @@
     rgb(41, 101, 227)
   );
   --button-primary-border-top-active: 1px solid rgb(56, 122, 227);
+
+  /* TOGGLE SWITCH */
+  --switch: linear-gradient(0deg, rgb(52, 120, 243), rgb(70, 139, 244));
+  --switch-off: rgb(207, 207, 208);
+  --switch-slider: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -69,5 +74,10 @@
       rgb(70, 145, 223)
     );
     --button-primary-border-top-active: 1px solid rgb(104, 176, 240);
+
+    /* TOGGLE SWITCH */
+    --switch: linear-gradient(0deg, rgb(45, 93, 199), rgb(50, 103, 221));
+    --switch-off: rgb(62, 64, 66);
+    --switch-slider: rgb(201, 202, 202);
   }
 }

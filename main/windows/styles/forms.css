@@ -25,7 +25,6 @@ textarea {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  cursor: pointer;
   user-select: none;
 
   & .switch {
@@ -57,7 +56,6 @@ textarea {
 
     & .slider {
       position: absolute;
-      cursor: pointer;
       top: 0;
       left: 0;
       right: 0;

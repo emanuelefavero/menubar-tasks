@@ -1,4 +1,4 @@
-import { Tray, nativeImage, app } from 'electron'
+import { Tray, nativeImage, app, ipcMain } from 'electron'
 import { loadTasks } from '../services/tasks.js'
 import { getFirstNCharsNoTruncate } from '../utils/text.js'
 import path from 'path'
@@ -6,6 +6,7 @@ import fs from 'fs'
 import { buildContextMenu } from './menu.js'
 
 let tray = null
+let updateTrayFn = null
 
 /**
  * Creates and initializes the tray icon
@@ -16,6 +17,9 @@ export function initializeTray() {
 
   // Watch for changes to the tasks file and update the tray accordingly
   fs.watchFile(path.join(app.getPath('userData'), 'tasks.json'), updateTray)
+
+  // Listen for settings updates
+  app.on('settings-updated', updateTray)
 }
 
 /**
@@ -36,4 +40,21 @@ function updateTray() {
 
   tray.setTitle(title)
   tray.setContextMenu(buildContextMenu(updateTray))
+}
+
+export function createTray() {
+  tray = new Tray(path.join(app.getAppPath(), 'resources', 'iconTemplate.png'))
+
+  function updateTray() {
+    const contextMenu = buildContextMenu(updateTray)
+    tray.setContextMenu(contextMenu)
+  }
+
+  updateTrayFn = updateTray
+  updateTray()
+
+  // Listen for settings updates
+  app.on('settings-updated', updateTray)
+
+  return tray
 }

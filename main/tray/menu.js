@@ -7,8 +7,10 @@ import {
   editTask,
   toggleTaskDone,
 } from '../services/tasks.js'
+import { loadSettings } from '../services/settings.js'
 import { showPrompt } from '../lib/prompt.js'
 import { strikethrough } from '../utils/text.js'
+import { createSettingsWindow } from '../windows/settings.js'
 
 /**
  * Builds and returns the context menu that appears when clicking the tray icon
@@ -19,10 +21,15 @@ import { strikethrough } from '../utils/text.js'
  */
 export function buildContextMenu(updateTray) {
   const tasks = loadTasks()
+  const settings = loadSettings()
 
   // Convert each task into a menu item with submenu containing delete option
   const taskItems = tasks.map((task) => ({
-    label: task.done ? `✅ ${strikethrough(task.text)}` : `◻️ ${task.text}`,
+    label: task.done
+      ? `✅ ${strikethrough(task.text)}`
+      : settings.showUndoneIcon
+      ? `◻️ ${task.text}`
+      : task.text,
     submenu: [
       {
         label: task.done ? 'Mark as Undone' : 'Mark as Done',
@@ -108,6 +115,15 @@ export function buildContextMenu(updateTray) {
           ],
         }
       : { label: 'Clear', enabled: false }, // Disable if no tasks
+
+    // Settings option
+    { type: 'separator' },
+    {
+      label: 'Settings',
+      click: () => {
+        createSettingsWindow()
+      },
+    },
 
     // Quit option
     { label: 'Quit', role: 'quit' },

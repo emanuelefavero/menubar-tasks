@@ -97,12 +97,21 @@ select {
   color: var(--foreground);
   border: 1px solid var(--background);
   outline: none;
+
+  /* Select Icon */
+  background-image: var(--select-icon);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1px) 5px;
+  background-size: 18px;
+  image-rendering: auto;
+  background-blend-mode: normal;
 }
 
 select:hover {
   background-color: var(--select-hover);
   border: var(--select-border);
   border-bottom: var(--select-border-bottom);
+  background-image: var(--select-icon-hover);
 }
 
 select:focus {

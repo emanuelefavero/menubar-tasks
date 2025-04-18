@@ -1,8 +1,6 @@
 import { app } from 'electron'
 import { initializeTray } from './tray/tray.js'
 
-// TODO add a settings menu item to open a settings window
-// TODO add settings to choose to show undone task icon
 // TODO add max tasks setting to limit the number of tasks shown in the menu
 // TODO ? replace input with textarea to show more line of text in prompt (you should probably use a custom prompt since electron-prompt does not support it)
 // TODO add a max characters setting to limit the number of characters the user can input when adding or editing a task (135 chars is when the text is truncated)

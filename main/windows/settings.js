@@ -6,8 +6,17 @@ const __dirname = import.meta.dirname
 let settingsWindow = null
 
 export function createSettingsWindow() {
+  // If the settings window is already open, focus it and show it
   if (settingsWindow) {
     settingsWindow.focus()
+    settingsWindow.show()
+    settingsWindow.setAlwaysOnTop(true)
+    // Remove always on top after a short delay
+    setTimeout(() => {
+      if (settingsWindow) {
+        settingsWindow.setAlwaysOnTop(false)
+      }
+    }, 200)
     return
   }
 

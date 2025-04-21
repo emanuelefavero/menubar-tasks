@@ -2,6 +2,10 @@
   --background: rgb(234, 235, 237);
   --foreground: rgb(39, 39, 39);
 
+  /* CARD */
+  --card: rgb(230, 231, 232);
+  --card-border: 1px solid rgb(222, 223, 224);
+
   /* INPUT */
   --input: rgb(222, 223, 224);
   --input-border: 1px solid rgb(215, 216, 217);
@@ -52,6 +56,10 @@
   :root {
     --background: rgb(37, 39, 42);
     --foreground: rgb(222, 222, 223);
+
+    /* CARD */
+    --card: rgb(40, 42, 44);
+    --card-border: 1px solid rgb(62, 64, 66);
 
     /* INPUT */
     --input: rgb(49, 51, 53);

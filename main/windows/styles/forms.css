@@ -28,7 +28,7 @@ textarea {
   font-size: 0.75rem;
   color: var(--input-placeholder);
   text-align: right;
-  padding: 0.2rem 0.35rem;
+  padding: 0.35rem 0.35rem 0 0.35rem;
   user-select: none;
 }
 

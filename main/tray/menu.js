@@ -93,7 +93,11 @@ export function buildContextMenu(updateTray) {
               updateTray()
             }
           })
-          .catch(console.error)
+          .catch((error) => {
+            if (error.message !== 'Prompt window already open') {
+              console.error(error)
+            }
+          })
       },
     },
     // Task List

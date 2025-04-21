@@ -6,8 +6,18 @@ let promptWindow = null
 let promptResolve = null
 
 export function createPromptWindow(title = 'Add Task', value = '') {
+  // If the prompt window is already open, focus it and show it
   if (promptWindow) {
     promptWindow.focus()
+    promptWindow.show()
+    promptWindow.setAlwaysOnTop(true)
+    // Remove always on top after a short delay
+    setTimeout(() => {
+      if (promptWindow) {
+        promptWindow.setAlwaysOnTop(false)
+      }
+    }, 200)
+
     return Promise.reject(new Error('Prompt window already open'))
   }
 

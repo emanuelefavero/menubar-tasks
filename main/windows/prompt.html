@@ -6,7 +6,14 @@
   </head>
   <body>
     <label class="title" for="taskInput" id="label"></label>
-    <textarea id="taskInput" placeholder="Task" rows="2" autofocus></textarea>
+    <textarea
+      id="taskInput"
+      placeholder="Task"
+      rows="2"
+      maxlength="135"
+      autofocus
+    ></textarea>
+    <div class="char-count"><span id="charCount">0</span>/135</div>
     <div class="buttons-container">
       <button class="secondary" id="cancel">Cancel</button>
       <button class="primary" id="ok">Done</button>
@@ -19,6 +26,13 @@
       const okButton = document.getElementById('ok')
       const cancelButton = document.getElementById('cancel')
       const label = document.getElementById('label')
+      const charCount = document.getElementById('charCount')
+
+      // Update character count
+      function updateCharCount() {
+        const count = taskInput.value.length
+        charCount.textContent = count
+      }
 
       // Get mode and set label text
       ipcRenderer.invoke('get-mode').then((mode) => {
@@ -28,11 +42,15 @@
       // Set initial value if provided
       ipcRenderer.invoke('get-initial-value').then((value) => {
         taskInput.value = value || ''
+        updateCharCount()
         taskInput.select()
       })
 
       // Handle form submission
       function submitForm() {
+        if (taskInput.value.length > 135) {
+          return // Don't submit if text is too long
+        }
         ipcRenderer.invoke('submit-prompt', taskInput.value)
       }
 
@@ -58,6 +76,9 @@
           cancel()
         }
       })
+
+      // Add input event listener for character count
+      taskInput.addEventListener('input', updateCharCount)
     </script>
   </body>
 </html>

@@ -23,7 +23,7 @@ body {
 
   /* Style every child */
   & > * {
-    padding: 0.625rem 0;
+    padding: 0.6rem 0;
   }
 
   /* Style every child except last */

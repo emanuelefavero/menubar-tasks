@@ -16,7 +16,7 @@ export function createPromptWindow(title = 'Add Task', value = '') {
 
     promptWindow = new BrowserWindow({
       width: 400,
-      height: 160,
+      height: 178,
       title,
       minimizable: false,
       maximizable: false,

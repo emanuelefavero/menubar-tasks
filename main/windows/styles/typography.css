@@ -6,6 +6,7 @@ body {
 
 h2 {
   font-size: 0.875rem;
+  padding-left: 0.6rem;
 }
 
 label {
@@ -17,4 +18,5 @@ label {
 
 label.title {
   font-weight: 600;
+  padding-left: 0.6rem;
 }

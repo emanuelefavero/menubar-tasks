@@ -1,7 +1,7 @@
 import { app } from 'electron'
 import { initializeTray } from './tray/tray.js'
 
-// TODO ? replace input with textarea to show more line of text in prompt (you should probably use a custom prompt since electron-prompt does not support it)
+// TODO ? replace input with textarea to show more line of text in prompt
 // TODO add a max characters setting to limit the number of characters the user can input when adding or editing a task (135 chars is when the text is truncated)
 // TODO create and add app icon
 // TODO add a setting to choose if showing the last task, an icon, the app name "Tasks" in the tray icon

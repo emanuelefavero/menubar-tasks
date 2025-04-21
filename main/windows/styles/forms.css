@@ -102,9 +102,9 @@ textarea {
     padding-left: 0.7rem;
     padding-right: 22px;
     border-radius: 0.43rem;
-    background-color: var(--background);
+    background-color: var(--card);
     color: var(--foreground);
-    border: 1px solid var(--background);
+    border: 1px solid var(--card);
     outline: none;
 
     /* Select Icon */

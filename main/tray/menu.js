@@ -78,16 +78,12 @@ export function buildContextMenu(updateTray) {
     { label: 'Tasks', enabled: false },
     { type: 'separator' },
 
-    // Task List
-    ...taskItems,
-    { type: 'separator' },
-
     // Add new task option
     {
       label:
         tasks.length >= settings.maxTasks
           ? 'Add Task (Max Limit Reached)'
-          : 'Add Task',
+          : '➕ Add Task',
       enabled: tasks.length < settings.maxTasks,
       click: () => {
         createPromptWindow()
@@ -100,6 +96,9 @@ export function buildContextMenu(updateTray) {
           .catch(console.error)
       },
     },
+    // Task List
+    ...taskItems,
+    { type: 'separator' },
 
     // Clear option
     tasks.length > 0

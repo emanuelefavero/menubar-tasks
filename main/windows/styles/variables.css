@@ -5,6 +5,7 @@
   /* CARD */
   --card: rgb(230, 231, 232);
   --card-border: 1px solid rgb(222, 223, 224);
+  --card-separator: 1px solid rgb(219, 220, 221);
 
   /* INPUT */
   --input: rgb(222, 223, 224);
@@ -60,6 +61,7 @@
     /* CARD */
     --card: rgb(40, 42, 44);
     --card-border: 1px solid rgb(62, 64, 66);
+    --card-separator: 1px solid rgb(50, 52, 54);
 
     /* INPUT */
     --input: rgb(49, 51, 53);

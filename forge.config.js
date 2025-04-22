@@ -1,10 +1,13 @@
 import { FusesPlugin } from '@electron-forge/plugin-fuses'
 import { FuseV1Options, FuseVersion } from '@electron/fuses'
+import path from 'path'
+import process from 'process'
 
 export default {
   packagerConfig: {
     asar: true,
-    icon: './assets/icon',
+    icon: path.join(process.cwd(), 'assets', 'icon.icns'),
+    extraResource: [path.join(process.cwd(), 'assets', 'icon.icns')],
   },
   rebuildConfig: {},
   makers: [
@@ -13,7 +16,7 @@ export default {
       platforms: ['darwin'],
       config: {
         options: {
-          icon: './assets/icon.png',
+          icon: path.join(process.cwd(), 'assets', 'icon.icns'),
         },
       },
     },

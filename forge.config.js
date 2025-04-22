@@ -14,10 +14,11 @@ export default {
     {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
+    },
+    {
+      name: '@electron-forge/maker-dmg',
       config: {
-        options: {
-          icon: path.join(process.cwd(), 'images', 'icon.icns'),
-        },
+        icon: path.join(process.cwd(), 'images', 'icon.icns'),
       },
     },
   ],

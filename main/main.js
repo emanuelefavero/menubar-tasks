@@ -1,7 +1,7 @@
 import { app } from 'electron'
 import { initializeTray } from './tray/tray.js'
 
-// TODO create and add app icon
+// TODO: add `titleBarStyle: 'hidden',` to prompt and settings BrowserWindow object while still allowing moving the window when clicking on the top of the window
 // TODO add a setting to choose if showing the last task, an icon, the app name "Tasks" in the tray icon
 
 // Prevent the app from quitting when all windows are closed

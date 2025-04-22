@@ -6,8 +6,8 @@ import process from 'process'
 export default {
   packagerConfig: {
     asar: true,
-    icon: path.join(process.cwd(), 'assets', 'icon.icns'),
-    extraResource: [path.join(process.cwd(), 'assets', 'icon.icns')],
+    icon: path.join(process.cwd(), 'images', 'icon.icns'),
+    extraResource: [path.join(process.cwd(), 'images', 'icon.icns')],
   },
   rebuildConfig: {},
   makers: [
@@ -16,7 +16,7 @@ export default {
       platforms: ['darwin'],
       config: {
         options: {
-          icon: path.join(process.cwd(), 'assets', 'icon.icns'),
+          icon: path.join(process.cwd(), 'images', 'icon.icns'),
         },
       },
     },

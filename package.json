@@ -38,7 +38,7 @@
           "config": {
             "format": "zip",
             "overwrite": true,
-            "icon": "assets/icon.png"
+            "icon": "images/icon.png"
           }
         }
       ]

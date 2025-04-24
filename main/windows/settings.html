@@ -5,31 +5,35 @@
     <link rel="stylesheet" href="styles/globals.css" />
   </head>
   <body>
-    <h2>Settings</h2>
+    <header></header>
 
-    <div class="card">
-      <label class="switch-container">
-        <span class="switch-label"
-          >Show checkbox icon (◻️) for undone tasks</span
-        >
-        <span class="switch">
-          <input type="checkbox" id="showUndoneIcon" checked />
-          <span class="slider"></span>
-        </span>
-      </label>
+    <main>
+      <h2>Settings</h2>
 
-      <div class="select-container">
-        <label for="maxTasks">Maximum number of tasks</label>
-        <select id="maxTasks">
-          <option value="33">33 (No scrolling needed)</option>
-          <option value="100">100 (With scrolling)</option>
-        </select>
+      <div class="card">
+        <label class="switch-container">
+          <span class="switch-label"
+            >Show checkbox icon (◻️) for undone tasks</span
+          >
+          <span class="switch">
+            <input type="checkbox" id="showUndoneIcon" checked />
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <div class="select-container">
+          <label for="maxTasks">Maximum number of tasks</label>
+          <select id="maxTasks">
+            <option value="33">33 (No scrolling needed)</option>
+            <option value="100">100 (With scrolling)</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="buttons-container">
-      <button class="primary" id="saveButton">Save & Close</button>
-    </div>
+      <div class="buttons-container">
+        <button class="primary" id="saveButton">Save & Close</button>
+      </div>
+    </main>
 
     <script>
       const { ipcRenderer } = require('electron')

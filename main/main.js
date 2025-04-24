@@ -3,6 +3,8 @@ import { initializeTray } from './tray/tray.js'
 import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 
+// TODO use electron-builder instead of electron-forge
+
 const autoLauncher = new AutoLaunch({
   name: 'MenuBar Tasks',
   path: app.getPath('exe'),

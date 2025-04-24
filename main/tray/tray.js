@@ -17,6 +17,18 @@ function updateTrayDisplay() {
   const tasks = loadTasks()
 
   switch (settings.trayDisplay) {
+    case 'lastUndoneTask':
+      // Show last undone task or default text if no tasks
+      const undoneTasks = tasks.filter((task) => !task.done)
+      const lastUndoneTask =
+        undoneTasks.length > 0
+          ? undoneTasks[0].text
+          : tasks.length > 0
+          ? '✅ All Tasks Done'
+          : 'No Tasks'
+      tray.setImage(nativeImage.createEmpty())
+      tray.setTitle(getFirstNCharsNoTruncate(lastUndoneTask, 50))
+      break
     case 'lastTask':
       // Show last task or default text if no tasks
       const lastTask = tasks.length > 0 ? tasks[0].text : 'No Tasks'

@@ -11,8 +11,10 @@ body {
 }
 
 header {
+  /* ? Make window draggable even with hidden title bar */
   -webkit-app-select: none;
   -webkit-app-region: drag;
+
   background-color: transparent;
   height: 1.75rem;
   width: 100%;

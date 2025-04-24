@@ -5,19 +5,25 @@
     <link rel="stylesheet" href="styles/globals.css" />
   </head>
   <body>
-    <label class="title" for="taskInput" id="label"></label>
-    <textarea
-      id="taskInput"
-      placeholder="Task"
-      rows="3"
-      maxlength="135"
-      autofocus
-    ></textarea>
-    <div class="char-count"><span id="charCount">0</span>/135</div>
-    <div class="buttons-container">
-      <button class="secondary" id="cancel">Cancel</button>
-      <button class="primary" id="ok">Done</button>
-    </div>
+    <!-- Make window draggable even with hidden title bar  -->
+    <!-- TIP: This header component will be used to make the window draggable even when hiding the title bar. @see globals.css -->
+    <header></header>
+
+    <main>
+      <label class="title" for="taskInput" id="label"></label>
+      <textarea
+        id="taskInput"
+        placeholder="Task"
+        rows="3"
+        maxlength="135"
+        autofocus
+      ></textarea>
+      <div class="char-count"><span id="charCount">0</span>/135</div>
+      <div class="buttons-container">
+        <button class="secondary" id="cancel">Cancel</button>
+        <button class="primary" id="ok">Done</button>
+      </div>
+    </main>
 
     <script>
       const { ipcRenderer } = require('electron')

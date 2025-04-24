@@ -1,7 +1,6 @@
 import { app } from 'electron'
 import { initializeTray } from './tray/tray.js'
 
-// TODO add an option to choose to show only undone tasks as tray icon
 // TODO add a setting to open the app on startup
 
 // Prevent the app from quitting when all windows are closed

@@ -11,6 +11,15 @@
       <h2>Settings</h2>
 
       <div class="card">
+        <div class="select-container">
+          <label for="trayDisplay">Menu Bar Display</label>
+          <select id="trayDisplay">
+            <option value="icon">App Icon</option>
+            <option value="lastTask">Last Task</option>
+            <option value="appName">App Name (Tasks)</option>
+          </select>
+        </div>
+
         <label class="switch-container">
           <span class="switch-label"
             >Show checkbox icon (◻️) for undone tasks</span
@@ -45,6 +54,7 @@
             settings.showUndoneIcon
           document.getElementById('maxTasks').value =
             settings.maxTasks.toString()
+          document.getElementById('trayDisplay').value = settings.trayDisplay
         })
       })
 
@@ -53,6 +63,7 @@
         const settings = {
           showUndoneIcon: document.getElementById('showUndoneIcon').checked,
           maxTasks: parseInt(document.getElementById('maxTasks').value, 10),
+          trayDisplay: document.getElementById('trayDisplay').value,
         }
 
         ipcRenderer.invoke('save-settings', settings).then(() => {

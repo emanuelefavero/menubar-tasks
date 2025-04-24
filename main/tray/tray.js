@@ -1,5 +1,6 @@
-import { Tray, nativeImage, app, ipcMain } from 'electron'
+import { Tray, nativeImage, app } from 'electron'
 import { loadTasks } from '../services/tasks.js'
+import { loadSettings } from '../services/settings.js'
 import { getFirstNCharsNoTruncate } from '../utils/text.js'
 import path from 'path'
 import fs from 'fs'
@@ -9,9 +10,44 @@ let tray = null
 let updateTrayFn = null
 
 /**
+ * Updates the tray display based on settings
+ */
+function updateTrayDisplay() {
+  const settings = loadSettings()
+  const tasks = loadTasks()
+
+  switch (settings.trayDisplay) {
+    case 'lastTask':
+      // Show last task or default text if no tasks
+      const lastTask = tasks.length > 0 ? tasks[0].text : 'No Tasks'
+      tray.setImage(nativeImage.createEmpty())
+      tray.setTitle(getFirstNCharsNoTruncate(lastTask, 50))
+      break
+
+    case 'appName':
+      tray.setImage(nativeImage.createEmpty())
+      tray.setTitle('Tasks')
+      break
+
+    case 'icon':
+    default:
+      // Show icon only
+      const iconPath = path.join(app.getAppPath(), 'images', 'icon-black.png')
+      const icon = nativeImage
+        .createFromPath(iconPath)
+        .resize({ width: 16, height: 16 })
+      icon.setTemplateImage(true)
+      tray.setTitle('')
+      tray.setImage(icon)
+      break
+  }
+}
+
+/**
  * Creates and initializes the tray icon
  */
 export function initializeTray() {
+  // Start with an empty icon
   tray = new Tray(nativeImage.createEmpty())
   updateTray()
 
@@ -23,29 +59,19 @@ export function initializeTray() {
 }
 
 /**
- * Updates the tray icon's title and context menu
- * The title shows the most recent task with its completion status (truncated to 12 characters)
+ * Updates the tray icon's context menu and display
  */
 function updateTray() {
-  const tasks = loadTasks()
-  const lastTask = tasks.at(0)
-  let title = 'No tasks'
-
-  if (lastTask) {
-    const { done } = lastTask
-    const status = done ? '✅ ' : ''
-    const charLimit = done ? 9 : 12
-    title = status + getFirstNCharsNoTruncate(lastTask.text, charLimit)
-  }
-
-  tray.setTitle(title)
+  updateTrayDisplay()
   tray.setContextMenu(buildContextMenu(updateTray))
 }
 
 export function createTray() {
-  tray = new Tray(path.join(app.getAppPath(), 'resources', 'iconTemplate.png'))
+  // Start with an empty icon
+  tray = new Tray(nativeImage.createEmpty())
 
   function updateTray() {
+    updateTrayDisplay()
     const contextMenu = buildContextMenu(updateTray)
     tray.setContextMenu(contextMenu)
   }

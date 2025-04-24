@@ -7,6 +7,7 @@ const settingsPath = path.join(app.getPath('userData'), 'settings.json')
 const defaultSettings = {
   showUndoneIcon: true,
   maxTasks: 33, // Default to non-scrolling amount
+  trayDisplay: 'icon', // Can be 'icon', 'lastTask', or 'appName'
 }
 
 export function loadSettings() {

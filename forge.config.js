@@ -5,6 +5,8 @@ import process from 'process'
 
 export default {
   packagerConfig: {
+    name: 'MenuBar Tasks',
+    productName: 'MenuBar Tasks',
     asar: true,
     icon: path.join(process.cwd(), 'images', 'icon.icns'),
     extraResource: [path.join(process.cwd(), 'images', 'icon.icns')],

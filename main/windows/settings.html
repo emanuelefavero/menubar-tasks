@@ -22,6 +22,14 @@
         </div>
 
         <label class="switch-container">
+          <span class="switch-label">Open at login</span>
+          <span class="switch">
+            <input type="checkbox" id="openAtLogin" />
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <label class="switch-container">
           <span class="switch-label"
             >Show checkbox icon (◻️) for undone tasks</span
           >
@@ -56,6 +64,7 @@
           document.getElementById('maxTasks').value =
             settings.maxTasks.toString()
           document.getElementById('trayDisplay').value = settings.trayDisplay
+          document.getElementById('openAtLogin').checked = settings.openAtLogin
         })
       })
 
@@ -65,6 +74,7 @@
           showUndoneIcon: document.getElementById('showUndoneIcon').checked,
           maxTasks: parseInt(document.getElementById('maxTasks').value, 10),
           trayDisplay: document.getElementById('trayDisplay').value,
+          openAtLogin: document.getElementById('openAtLogin').checked,
         }
 
         ipcRenderer.invoke('save-settings', settings).then(() => {

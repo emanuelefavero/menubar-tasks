@@ -2,8 +2,6 @@
 
 This is an Electron app for Mac OS that allows you to create, manage and display tasks directly in the menu bar. It is designed to be minimal, easy to use and lightweight
 
-> Note: Some features are still in development as of this writing, but the core functionality is complete and ready for use
-
 ### Mockup
 
 ![mockup](./mockup.webp 'mockup')
@@ -22,7 +20,13 @@ This is an Electron app for Mac OS that allows you to create, manage and display
 - Run `npm start` to start the app
 - Check your menu bar to see the app in action
 
-> Tip: You can also package the app using `npm run package` to create a standalone app that you can distribute to others. Running `npm run make` will create a distributable package for your OS. You can find the package in the `out` directory
+## Build
+
+- Run `npm run app:dir` to build the app in a directory without code signing (useful for testing)
+- Run `npm run app:dist` to build the app for distribution (code signing is enabled)
+- The app will be built in the `dist` directory
+
+> Tip: Code signing takes a while, so I decided to disable it for the `app:dir` command. If you want to enable it, you can do so by setting `export CSC_IDENTITY_AUTO_DISCOVERY=true` in the `app:dir` command in `package.json`.
 
 ## Usage
 

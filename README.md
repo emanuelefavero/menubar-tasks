@@ -41,6 +41,18 @@ This is an Electron app for Mac OS that allows you to create, manage and display
 
 If you would like to contribute to this project, please fork the repository and create a pull request. All contributions are welcome!
 
+## Resources
+
+- [Electron](https://www.electronjs.org/)
+- [Electron Builder](https://www.electron.build/)
+- [Electron Builder Code Signing](https://www.electron.build/code-signing-mac.html)
+- [Electron Notarization](https://kilianvalkhof.com/2019/electron/notarizing-your-electron-application/)
+- [Electron Forge (not used in this repo)](https://www.electronforge.io/)
+- [Mac OS Categories](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW8)
+- [Mac OS Figma Icon Template](https://www.figma.com/community/file/1203739127660048027)
+- [TinyPNG](https://tinypng.com/)
+- [PNG to ICNS Converter](https://cloudconvert.com/)
+
 ## License
 
 - [MIT](LICENSE.md)

@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "electron .",
-    "app:dir": "electron-builder --dir",
-    "app:dist": "electron-builder"
+    "app:dir": "export CSC_IDENTITY_AUTO_DISCOVERY=false && electron-builder --dir",
+    "app:dist": "export CSC_IDENTITY_AUTO_DISCOVERY=true && electron-builder"
   },
   "build": {
     "appId": "com.emanuelefavero.menubar-tasks",

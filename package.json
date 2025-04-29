@@ -14,7 +14,8 @@
     "mac": {
       "category": "public.app-category.productivity",
       "icon": "images/icon.icns",
-      "darkModeSupport": true
+      "darkModeSupport": true,
+      "target": "dmg"
     },
     "extraResources": [
       {

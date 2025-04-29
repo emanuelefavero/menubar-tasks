@@ -3,6 +3,8 @@ import { initializeTray } from './tray/tray.js'
 import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 
+// TODO Add notarization with electron builder or npm electron-notarize @see https://kilianvalkhof.com/2019/electron/notarizing-your-electron-application/ and https://www.electron.build/code-signing-mac.html
+
 const autoLauncher = new AutoLaunch({
   name: 'MenuBar Tasks',
   path: app.getPath('exe'),

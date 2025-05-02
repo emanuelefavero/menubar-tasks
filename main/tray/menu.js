@@ -40,8 +40,6 @@ export function buildContextMenu(updateTray) {
         click: (_, __, event) => {
           toggleTaskDone(task.text)
           updateTray()
-
-          // Use the utility function to reopen the menu after keyboard shortcuts
           reopenMenu(event)
         },
       },
@@ -71,8 +69,6 @@ export function buildContextMenu(updateTray) {
         click: (_, __, event) => {
           deleteTask(task.text)
           updateTray()
-
-          // Use the utility function to reopen the menu after keyboard shortcuts
           reopenMenu(event)
         },
       },

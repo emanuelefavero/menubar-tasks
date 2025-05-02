@@ -74,9 +74,25 @@ export function buildContextMenu(updateTray) {
       },
       {
         label: 'Delete',
-        click: () => {
+        // Add accelerator to the "Delete" submenu item for first 9 tasks
+        accelerator:
+          index < 9 ? `CommandOrControl+Alt+${index + 1}` : undefined,
+        click: (_, window, event) => {
           deleteTask(task.text)
           updateTray()
+
+          // Check if this was triggered by a keyboard shortcut
+          // We can detect keyboard shortcuts by checking the event object
+          if (event && event.triggeredByAccelerator) {
+            // Set a slight delay to reopen the menu
+            setTimeout(() => {
+              // Force the tray menu to popup again after keyboard shortcut
+              const tray = global.tray || app.dock?.getBounds?.().tray
+              if (tray && tray.popUpContextMenu) {
+                tray.popUpContextMenu()
+              }
+            }, 50) // Small delay to allow the menu to close first
+          }
         },
       },
       {

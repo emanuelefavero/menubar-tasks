@@ -24,15 +24,18 @@ export function buildContextMenu(updateTray) {
   const settings = loadSettings()
 
   // Convert each task into a menu item with submenu containing delete option
-  const taskItems = tasks.map((task) => ({
+  const taskItems = tasks.map((task, index) => ({
     label: task.done
       ? `✅ ${strikethrough(task.text)}`
       : settings.showUndoneIcon
       ? `◻️ ${task.text}`
       : task.text,
+    // Remove accelerator from main task item
     submenu: [
       {
         label: task.done ? 'Mark as Undone' : 'Mark as Done',
+        // Add accelerator to the "Mark as Done"/"Mark as Undone" submenu item for first 9 tasks
+        accelerator: index < 9 ? `CommandOrControl+${index + 1}` : undefined,
         click: () => {
           toggleTaskDone(task.text)
           updateTray()

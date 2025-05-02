@@ -72,6 +72,7 @@
       // Handle Enter key
       taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
+          e.preventDefault() // Prevent the newline character from being added
           submitForm()
         }
       })

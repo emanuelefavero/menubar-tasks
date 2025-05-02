@@ -10,6 +10,7 @@ import {
 import { loadSettings } from '../services/settings.js'
 import { createPromptWindow } from '../windows/prompt.js'
 import { strikethrough } from '../utils/text.js'
+import { reopenMenuAfterShortcut } from '../utils/menu.js'
 import { createSettingsWindow } from '../windows/settings.js'
 
 /**
@@ -40,18 +41,8 @@ export function buildContextMenu(updateTray) {
           toggleTaskDone(task.text)
           updateTray()
 
-          // Check if this was triggered by a keyboard shortcut
-          // We can detect keyboard shortcuts by checking the event object
-          if (event && event.triggeredByAccelerator) {
-            // Set a slight delay to reopen the menu
-            setTimeout(() => {
-              // Force the tray menu to popup again after keyboard shortcut
-              const tray = global.tray || app.dock?.getBounds?.().tray
-              if (tray && tray.popUpContextMenu) {
-                tray.popUpContextMenu()
-              }
-            }, 50) // Small delay to allow the menu to close first
-          }
+          // Use the utility function to reopen the menu after keyboard shortcuts
+          reopenMenuAfterShortcut(event)
         },
       },
       {
@@ -81,18 +72,8 @@ export function buildContextMenu(updateTray) {
           deleteTask(task.text)
           updateTray()
 
-          // Check if this was triggered by a keyboard shortcut
-          // We can detect keyboard shortcuts by checking the event object
-          if (event && event.triggeredByAccelerator) {
-            // Set a slight delay to reopen the menu
-            setTimeout(() => {
-              // Force the tray menu to popup again after keyboard shortcut
-              const tray = global.tray || app.dock?.getBounds?.().tray
-              if (tray && tray.popUpContextMenu) {
-                tray.popUpContextMenu()
-              }
-            }, 50) // Small delay to allow the menu to close first
-          }
+          // Use the utility function to reopen the menu after keyboard shortcuts
+          reopenMenuAfterShortcut(event)
         },
       },
       {

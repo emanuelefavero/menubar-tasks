@@ -121,9 +121,10 @@ export function buildContextMenu(updateTray) {
           submenu: [
             {
               label: 'Clear All',
-              click: () => {
+              click: (_, __, event) => {
                 clearTasks()
                 updateTray()
+                reopenMenu(event)
               },
             },
           ],

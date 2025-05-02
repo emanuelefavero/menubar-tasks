@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain, app } from 'electron'
+import { BrowserWindow, ipcMain, app, nativeTheme } from 'electron'
 import path from 'path'
 import { loadSettings, saveSettings } from '../services/settings.js'
 
@@ -20,6 +20,10 @@ export function createSettingsWindow() {
     return
   }
 
+  // Set background color based on current theme
+  const isDarkMode = nativeTheme.shouldUseDarkColors
+  const backgroundColor = isDarkMode ? '#25272a' : '#eaebed'
+
   settingsWindow = new BrowserWindow({
     titleBarStyle: 'hidden', // Hide the title bar
     width: 420,
@@ -28,6 +32,9 @@ export function createSettingsWindow() {
     minimizable: false,
     maximizable: false,
     resizable: false,
+    show: false, // Don't show until content is ready
+    backgroundColor, // Set background color to match theme
+    transparent: true, // Enable transparency for smooth transitions
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -35,6 +42,11 @@ export function createSettingsWindow() {
   })
 
   settingsWindow.loadFile(path.join(__dirname, 'settings.html'))
+
+  // Show window only when content is ready to prevent flash
+  settingsWindow.once('ready-to-show', () => {
+    settingsWindow.show()
+  })
 
   settingsWindow.on('closed', () => {
     settingsWindow = null

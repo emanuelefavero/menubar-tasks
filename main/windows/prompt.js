@@ -1,4 +1,4 @@
-import { BrowserWindow, ipcMain } from 'electron'
+import { BrowserWindow, ipcMain, nativeTheme } from 'electron'
 import path from 'path'
 
 const __dirname = import.meta.dirname
@@ -24,6 +24,10 @@ export function createPromptWindow(title = 'Add Task', value = '') {
   return new Promise((resolve) => {
     promptResolve = resolve
 
+    // Set background color based on current theme
+    const isDarkMode = nativeTheme.shouldUseDarkColors
+    const backgroundColor = isDarkMode ? '#25272a' : '#eaebed'
+
     promptWindow = new BrowserWindow({
       titleBarStyle: 'hidden', // Hide the title bar
       width: 400,
@@ -32,6 +36,9 @@ export function createPromptWindow(title = 'Add Task', value = '') {
       minimizable: false,
       maximizable: false,
       resizable: false,
+      show: false, // Don't show the window until content is ready
+      backgroundColor, // Set background color to match theme
+      transparent: true, // Enable transparency for smooth transitions
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
@@ -41,6 +48,11 @@ export function createPromptWindow(title = 'Add Task', value = '') {
     // Store the initial value and determine mode
     promptWindow.__initialValue = value
     promptWindow.__mode = value ? 'edit' : 'new'
+
+    // Show window only when content is ready to prevent flash
+    promptWindow.once('ready-to-show', () => {
+      promptWindow.show()
+    })
 
     promptWindow.loadFile(path.join(__dirname, 'prompt.html'))
 

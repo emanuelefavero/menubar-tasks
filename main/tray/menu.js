@@ -101,6 +101,7 @@ export function buildContextMenu(updateTray) {
           ? 'Add Task (Max Limit Reached)'
           : '➕ Add Task',
       enabled: tasks.length < settings.maxTasks,
+      accelerator: 'CommandOrControl+N',
       click: () => {
         createPromptWindow()
           .then((r) => {

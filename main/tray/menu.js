@@ -37,7 +37,7 @@ export function buildContextMenu(updateTray) {
         label: task.done ? 'Mark as Undone' : 'Mark as Done',
         // Add accelerator to the "Mark as Done"/"Mark as Undone" submenu item for first 9 tasks
         accelerator: index < 9 ? `CommandOrControl+${index + 1}` : undefined,
-        click: (_, window, event) => {
+        click: (_, __, event) => {
           toggleTaskDone(task.text)
           updateTray()
 
@@ -68,7 +68,7 @@ export function buildContextMenu(updateTray) {
         // Add accelerator to the "Delete" submenu item for first 9 tasks
         accelerator:
           index < 9 ? `CommandOrControl+Alt+${index + 1}` : undefined,
-        click: (_, window, event) => {
+        click: (_, __, event) => {
           deleteTask(task.text)
           updateTray()
 

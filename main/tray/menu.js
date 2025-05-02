@@ -1,4 +1,4 @@
-import { Menu, clipboard, app } from 'electron'
+import { Menu, clipboard } from 'electron'
 import {
   loadTasks,
   addTask,

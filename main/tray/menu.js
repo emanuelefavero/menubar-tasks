@@ -10,7 +10,7 @@ import {
 import { loadSettings } from '../services/settings.js'
 import { createPromptWindow } from '../windows/prompt.js'
 import { strikethrough } from '../utils/text.js'
-import { reopenMenuAfterShortcut } from '../utils/menu.js'
+import { reopenMenu } from '../utils/menu.js'
 import { createSettingsWindow } from '../windows/settings.js'
 
 /**
@@ -42,7 +42,7 @@ export function buildContextMenu(updateTray) {
           updateTray()
 
           // Use the utility function to reopen the menu after keyboard shortcuts
-          reopenMenuAfterShortcut(event)
+          reopenMenu(event)
         },
       },
       {
@@ -73,7 +73,7 @@ export function buildContextMenu(updateTray) {
           updateTray()
 
           // Use the utility function to reopen the menu after keyboard shortcuts
-          reopenMenuAfterShortcut(event)
+          reopenMenu(event)
         },
       },
       {

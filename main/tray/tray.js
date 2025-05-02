@@ -70,6 +70,8 @@ function updateTrayDisplay() {
 export function initializeTray() {
   // Start with an empty icon
   tray = new Tray(nativeImage.createEmpty())
+  // Store tray reference globally for keyboard shortcut handling
+  global.tray = tray
   updateTray()
 
   // Watch for changes to the tasks file and update the tray accordingly
@@ -90,6 +92,8 @@ function updateTray() {
 export function createTray() {
   // Start with an empty icon
   tray = new Tray(nativeImage.createEmpty())
+  // Store tray reference globally for keyboard shortcut handling
+  global.tray = tray
 
   function updateTray() {
     updateTrayDisplay()

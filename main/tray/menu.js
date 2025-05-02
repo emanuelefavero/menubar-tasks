@@ -1,4 +1,4 @@
-import { Menu, clipboard } from 'electron'
+import { Menu, clipboard, app } from 'electron'
 import {
   loadTasks,
   addTask,
@@ -36,9 +36,22 @@ export function buildContextMenu(updateTray) {
         label: task.done ? 'Mark as Undone' : 'Mark as Done',
         // Add accelerator to the "Mark as Done"/"Mark as Undone" submenu item for first 9 tasks
         accelerator: index < 9 ? `CommandOrControl+${index + 1}` : undefined,
-        click: () => {
+        click: (_, window, event) => {
           toggleTaskDone(task.text)
           updateTray()
+
+          // Check if this was triggered by a keyboard shortcut
+          // We can detect keyboard shortcuts by checking the event object
+          if (event && event.triggeredByAccelerator) {
+            // Set a slight delay to reopen the menu
+            setTimeout(() => {
+              // Force the tray menu to popup again after keyboard shortcut
+              const tray = global.tray || app.dock?.getBounds?.().tray
+              if (tray && tray.popUpContextMenu) {
+                tray.popUpContextMenu()
+              }
+            }, 50) // Small delay to allow the menu to close first
+          }
         },
       },
       {

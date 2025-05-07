@@ -30,14 +30,24 @@ export function saveTasks(tasks) {
 
 /**
  * Adds a new task to the existing list
+ * If the task already exists, removes the old one and adds the new one at the top
  * @param {string} taskText - The task text to add
  */
 export function addTask(taskText) {
   const tasks = loadTasks()
+
+  // Check if task already exists and remove it
+  const existingTaskIndex = tasks.findIndex((task) => task.text === taskText)
+  if (existingTaskIndex !== -1) {
+    tasks.splice(existingTaskIndex, 1)
+  }
+
+  // Add the new task at the top of the list
   tasks.unshift({
     text: taskText,
     done: false,
   })
+
   saveTasks(tasks)
 }
 

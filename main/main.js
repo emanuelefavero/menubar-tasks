@@ -3,7 +3,6 @@ import { initializeTray } from './tray/tray.js'
 import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 
-// TODO Reopen menu after task is added (when the prompt window is closed)
 // TODO Reopen menu after task is edited (when the prompt window is closed)
 // TODO Reopen menu after settings are updated (when the settings window is closed)
 // TODO Prevent duplicate tasks from being added (when a duplicate task is added, remove the old one and add the new one so that it is at the top of the list)

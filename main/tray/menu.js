@@ -101,6 +101,7 @@ export function buildContextMenu(updateTray) {
             if (r !== null && r.trim() !== '') {
               addTask(r)
               updateTray()
+              reopenMenu({ preventDefault: () => {} }) // Fake an event to reopen menu
             }
           })
           .catch((error) => {

@@ -1,6 +1,7 @@
 import { BrowserWindow, ipcMain, app, nativeTheme } from 'electron'
 import path from 'path'
 import { loadSettings, saveSettings } from '../services/settings.js'
+import { reopenMenu } from '../utils/menu.js'
 
 const __dirname = import.meta.dirname
 let settingsWindow = null
@@ -50,6 +51,9 @@ export function createSettingsWindow() {
 
   settingsWindow.on('closed', () => {
     settingsWindow = null
+
+    // Reopen the tray menu when the settings window is closed
+    reopenMenu({ preventDefault: () => {} }) // ? Fake an event to reopen menu
   })
 }
 

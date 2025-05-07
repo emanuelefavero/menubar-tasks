@@ -1,5 +1,6 @@
 import { BrowserWindow, ipcMain, nativeTheme } from 'electron'
 import path from 'path'
+import { reopenMenu } from '../utils/menu.js'
 
 const __dirname = import.meta.dirname
 let promptWindow = null
@@ -63,6 +64,9 @@ export function createPromptWindow(title = 'Add Task', value = '') {
         promptResolve(null)
         promptResolve = null
       }
+
+      // Reopen the tray menu when the prompt window is closed
+      reopenMenu({ preventDefault: () => {} }) // ? Fake an event to reopen menu
     })
   })
 }

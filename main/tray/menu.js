@@ -12,6 +12,7 @@ import { createPromptWindow } from '../windows/prompt.js'
 import { strikethrough } from '../utils/text.js'
 import { reopenMenu } from '../utils/menu.js'
 import { createSettingsWindow } from '../windows/settings.js'
+import { createAboutWindow } from '../windows/about.js'
 
 /**
  * Builds and returns the context menu that appears when clicking the tray icon
@@ -148,6 +149,12 @@ export function buildContextMenu(updateTray) {
         shell.openExternal(
           'mailto:info@emanuelefavero.com?subject=MenuBar Tasks Support'
         )
+      },
+    },
+    {
+      label: 'About MenuBar Tasks',
+      click: () => {
+        createAboutWindow()
       },
     },
 

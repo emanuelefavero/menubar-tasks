@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About MenuBar Tasks</title>
+    <link rel="stylesheet" href="styles/globals.css" />
+    <style>
+      .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .app-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1rem;
+      }
+
+      .app-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .app-version {
+        font-size: 0.9rem;
+        color: var(--input-placeholder);
+        margin-bottom: 1rem;
+      }
+
+      .author {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .links a {
+        color: rgb(51, 121, 246);
+        text-decoration: none;
+      }
+
+      .links a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div class="about-container">
+        <img src="" alt="MenuBar Tasks" class="app-icon" id="app-icon" />
+        <div class="app-name">MenuBar Tasks</div>
+        <div class="app-version">Version 1.0.0</div>
+        <div class="author">Created by Emanuele Favero</div>
+        <div class="links">
+          <a href="#" id="website-link">emanuelefavero.com</a>
+          <a href="#" id="github-link">View on GitHub</a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const { ipcRenderer, shell } = require('electron')
+
+      // When the window loads
+      window.addEventListener('DOMContentLoaded', async () => {
+        // Get icon path from main process
+        const iconPath = await ipcRenderer.invoke('get-about-icon-path')
+        document.getElementById('app-icon').src = iconPath
+
+        // Set up links
+        const websiteLink = document.getElementById('website-link')
+        const githubLink = document.getElementById('github-link')
+
+        websiteLink.addEventListener('click', (e) => {
+          e.preventDefault()
+          shell.openExternal('https://emanuelefavero.com')
+        })
+
+        githubLink.addEventListener('click', (e) => {
+          e.preventDefault()
+          shell.openExternal('https://github.com/emanuelefavero/menubar-tasks')
+        })
+      })
+    </script>
+  </body>
+</html>

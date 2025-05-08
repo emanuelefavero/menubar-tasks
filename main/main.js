@@ -3,7 +3,6 @@ import { initializeTray } from './tray/tray.js'
 import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 
-// TODO Add "About MenuBar Tasks" menu item below "Customer Support" menu item (show a window with icon, app name, version, author name, website link and GitHub link)
 // TODO place "Settings", "Customer Support" and "About MenuBar Tasks" menu items in a separate submenu called "App"
 // TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
 // TODO Add tests

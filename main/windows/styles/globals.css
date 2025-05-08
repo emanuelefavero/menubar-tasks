@@ -4,6 +4,7 @@
 @import './forms.css';
 @import './buttons.css';
 @import './links.css';
+@import './cards.css';
 
 body {
   background-color: var(--background);
@@ -23,25 +24,4 @@ header {
 
 main {
   padding: 1rem;
-}
-
-.card {
-  padding: 0 0.625rem;
-  margin: 0;
-  margin-top: 0.625rem;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--card);
-  border: var(--card-border);
-  border-radius: 0.35rem;
-
-  /* Style every child */
-  & > * {
-    padding: 0.6rem 0;
-  }
-
-  /* Style every child except last */
-  & > *:not(:last-child) {
-    border-bottom: var(--card-separator);
-  }
 }

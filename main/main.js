@@ -6,6 +6,7 @@ import AutoLaunch from 'auto-launch'
 // TODO Add "Customer Support" menu item below "Settings" menu item (send email to support email address)
 // TODO Add "About MenuBar Tasks" menu item below "Customer Support" menu item (show a window with icon, app name, version, author name, website link and GitHub link)
 // TODO place "Settings", "Customer Support" and "About MenuBar Tasks" menu items in a separate submenu called "App"
+// TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
 // TODO Add tests
 // TODO Add notarization with electron builder or npm electron-notarize @see https://kilianvalkhof.com/2019/electron/notarizing-your-electron-application/ and https://www.electron.build/code-signing-mac.html
 

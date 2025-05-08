@@ -54,6 +54,9 @@
   --select-border-bottom: 1px solid rgb(191, 191, 193);
   --select-icon: url('images/select.png');
   --select-icon-hover: url('images/select-hover.png');
+
+  /* APP VERSION */
+  --app-version: rgb(119, 120, 121);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -113,5 +116,8 @@
     --select-border-bottom: 1px solid rgb(34, 35, 38);
     --select-icon: url('images/select-dark.png');
     --select-icon-hover: url('images/select-dark-hover.png');
+
+    /* APP VERSION */
+    --app-version: rgb(157, 158, 159);
   }
 }

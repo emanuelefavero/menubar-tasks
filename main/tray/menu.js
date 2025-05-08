@@ -138,24 +138,29 @@ export function buildContextMenu(updateTray) {
     // Settings option
     { type: 'separator' },
     {
-      label: 'Settings',
-      click: () => {
-        createSettingsWindow()
-      },
-    },
-    {
-      label: 'Customer Support',
-      click: () => {
-        shell.openExternal(
-          'mailto:info@emanuelefavero.com?subject=MenuBar Tasks Support'
-        )
-      },
-    },
-    {
-      label: 'About MenuBar Tasks',
-      click: () => {
-        createAboutWindow()
-      },
+      label: 'App',
+      submenu: [
+        {
+          label: 'Settings',
+          click: () => {
+            createSettingsWindow()
+          },
+        },
+        {
+          label: 'Customer Support',
+          click: () => {
+            shell.openExternal(
+              'mailto:info@emanuelefavero.com?subject=MenuBar Tasks Support'
+            )
+          },
+        },
+        {
+          label: 'About MenuBar Tasks',
+          click: () => {
+            createAboutWindow()
+          },
+        },
+      ],
     },
 
     // Quit option

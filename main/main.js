@@ -3,7 +3,6 @@ import { initializeTray } from './tray/tray.js'
 import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 
-// TODO Prevent duplicate tasks from being added (when a duplicate task is added, remove the old one and add the new one so that it is at the top of the list)
 // TODO Add keyboard shortcut accelerator to edit task menu item (`CommandOrControl+Control+${index+1}`) ? (check compatibility with system shortcuts)
 // TODO Add "Customer Support" menu item below "Settings" menu item (send email to support email address)
 // TODO Add "About MenuBar Tasks" menu item below "Customer Support" menu item (show a window with icon, app name, version, author name, website link and GitHub link)

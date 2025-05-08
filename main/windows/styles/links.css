@@ -12,4 +12,8 @@ a {
   flex-direction: column;
   gap: 0.5rem;
   margin-top: 0.5rem;
+
+  & a {
+    font-size: 0.875rem;
+  }
 }

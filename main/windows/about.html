@@ -58,6 +58,7 @@
         <div class="links">
           <a href="#" id="website-link">App Website</a>
           <a href="#" id="github-link">GitHub Repository</a>
+          <a href="#" id="coffee-link">☕️ Buy me a coffee</a>
         </div>
       </div>
     </main>
@@ -75,6 +76,7 @@
         const authorLink = document.getElementById('author-link')
         const websiteLink = document.getElementById('website-link')
         const githubLink = document.getElementById('github-link')
+        const coffeeLink = document.getElementById('coffee-link')
 
         authorLink.addEventListener('click', (e) => {
           e.preventDefault()
@@ -89,6 +91,11 @@
         githubLink.addEventListener('click', (e) => {
           e.preventDefault()
           shell.openExternal('https://github.com/emanuelefavero/menubar-tasks')
+        })
+
+        coffeeLink.addEventListener('click', (e) => {
+          e.preventDefault()
+          shell.openExternal('https://buymeacoffee.com/emanuelefavero')
         })
       })
     </script>

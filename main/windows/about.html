@@ -26,13 +26,13 @@
         }
 
         & .app-version {
-          font-size: 0.875rem;
+          font-size: 0.75rem;
           color: var(--app-version);
           margin-bottom: 1rem;
         }
 
         & .author {
-          font-size: 0.9rem;
+          font-size: 0.875rem;
           margin-bottom: 1rem;
         }
       }
@@ -43,13 +43,21 @@
 
     <main>
       <div class="about-container">
-        <img src="" alt="MenuBar Tasks" class="app-icon" id="app-icon" />
+        <img
+          src=""
+          alt="MenuBar Tasks"
+          class="app-icon"
+          id="app-icon"
+          draggable="false"
+        />
         <div class="app-name">MenuBar Tasks</div>
         <div class="app-version">Version 1.0.0</div>
-        <div class="author">Created by Emanuele Favero</div>
+        <div class="author">
+          Created by <a href="#" id="author-link">Emanuele Favero</a>
+        </div>
         <div class="links">
-          <a href="#" id="website-link">emanuelefavero.com</a>
-          <a href="#" id="github-link">View on GitHub</a>
+          <a href="#" id="website-link">App Website</a>
+          <a href="#" id="github-link">GitHub Repository</a>
         </div>
       </div>
     </main>
@@ -64,8 +72,14 @@
         document.getElementById('app-icon').src = iconPath
 
         // Set up links
+        const authorLink = document.getElementById('author-link')
         const websiteLink = document.getElementById('website-link')
         const githubLink = document.getElementById('github-link')
+
+        authorLink.addEventListener('click', (e) => {
+          e.preventDefault()
+          shell.openExternal('https://emanuelefavero.com')
+        })
 
         websiteLink.addEventListener('click', (e) => {
           e.preventDefault()

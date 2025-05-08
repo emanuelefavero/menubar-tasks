@@ -1,4 +1,4 @@
-import { Menu, clipboard } from 'electron'
+import { Menu, clipboard, shell } from 'electron'
 import {
   loadTasks,
   addTask,
@@ -140,6 +140,14 @@ export function buildContextMenu(updateTray) {
       label: 'Settings',
       click: () => {
         createSettingsWindow()
+      },
+    },
+    {
+      label: 'Customer Support',
+      click: () => {
+        shell.openExternal(
+          'mailto:info@emanuelefavero.com?subject=MenuBar Tasks Support'
+        )
       },
     },
 

@@ -76,11 +76,24 @@ export function deleteTask(taskText) {
 export function editTask(oldText, newText) {
   const tasks = loadTasks()
   const taskIndex = tasks.findIndex((task) => task.text === oldText)
+
   if (taskIndex !== -1) {
+    // Check if a task with the new text already exists (that isn't the one we're editing)
+    const duplicateIndex = tasks.findIndex(
+      (task, index) => task.text === newText && index !== taskIndex
+    )
+
+    if (duplicateIndex !== -1) {
+      // If a duplicate exists, remove the duplicate task (not the one being edited)
+      tasks.splice(duplicateIndex, 1)
+    }
+
+    // Update the task being edited with the new text
     tasks[taskIndex] = {
       ...tasks[taskIndex],
       text: newText,
     }
+
     saveTasks(tasks)
   } else {
     console.error(`Task "${oldText}" not found.`)

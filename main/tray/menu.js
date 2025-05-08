@@ -45,6 +45,8 @@ export function buildContextMenu(updateTray) {
       },
       {
         label: 'Edit',
+        // Add accelerator to the "Edit" submenu item for first 9 tasks
+        accelerator: index < 9 ? `Shift+${index + 1}` : undefined,
         click: () => {
           createPromptWindow('Edit Task', task.text)
             .then((r) => {

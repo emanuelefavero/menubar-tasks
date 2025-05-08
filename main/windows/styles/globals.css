@@ -3,6 +3,7 @@
 @import './typography.css';
 @import './forms.css';
 @import './buttons.css';
+@import './links.css';
 
 body {
   background-color: var(--background);

@@ -14,6 +14,9 @@
   --input-focus-outline: 3px solid rgb(132, 163, 230);
   --input-placeholder: rgb(181, 181, 182);
 
+  /* LINK */
+  --link: rgb(51, 121, 246);
+
   /* BUTTON */
   --button: #fff;
   --button-border-top: 1px solid rgb(219, 220, 222);
@@ -69,6 +72,9 @@
     --input-border-bottom: 1px solid rgb(79, 83, 84);
     --input-focus-outline: 3px solid rgb(57, 103, 144);
     --input-placeholder: rgb(102, 104, 104);
+
+    /* LINK */
+    --link: rgb(59, 130, 247);
 
     /* BUTTON */
     --button: rgb(92, 93, 95);

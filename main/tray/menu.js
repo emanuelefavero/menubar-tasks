@@ -125,7 +125,7 @@ export function buildContextMenu(updateTray) {
           label: 'Clear',
           submenu: [
             {
-              label: 'Clear All',
+              label: 'All Tasks',
               accelerator: 'CommandOrControl+Shift+X',
               click: (_, __, event) => {
                 clearTasks()
@@ -135,7 +135,7 @@ export function buildContextMenu(updateTray) {
             },
             doneTasks.length > 0
               ? {
-                  label: 'Clear Done',
+                  label: 'Completed Tasks',
                   accelerator: 'CommandOrControl+Shift+D',
                   click: (_, __, event) => {
                     clearDoneTasks()
@@ -144,7 +144,7 @@ export function buildContextMenu(updateTray) {
                   },
                 }
               : {
-                  label: 'Clear Done Tasks',
+                  label: 'Completed Tasks',
                   enabled: false,
                 }, // Disable if no done tasks
           ],

@@ -59,6 +59,15 @@ export function clearTasks() {
 }
 
 /**
+ * Clears all done tasks from the list
+ */
+export function clearDoneTasks() {
+  const tasks = loadTasks()
+  const updatedTasks = tasks.filter((task) => !task.done)
+  saveTasks(updatedTasks)
+}
+
+/**
  * Deletes a specific task from the list
  * @param {string} taskText - The text of the task to delete
  */

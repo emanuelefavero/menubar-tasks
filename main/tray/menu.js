@@ -3,6 +3,7 @@ import {
   loadTasks,
   addTask,
   clearTasks,
+  clearDoneTasks,
   deleteTask,
   editTask,
   toggleTaskDone,
@@ -23,6 +24,7 @@ import { createAboutWindow } from '../windows/about.js'
  */
 export function buildContextMenu(updateTray) {
   const tasks = loadTasks()
+  const doneTasks = tasks.filter((task) => task.done)
   const settings = loadSettings()
 
   // Convert each task into a menu item with submenu containing delete option
@@ -131,6 +133,19 @@ export function buildContextMenu(updateTray) {
                 reopenMenu(event)
               },
             },
+            doneTasks.length > 0
+              ? {
+                  label: 'Clear Done',
+                  click: (_, __, event) => {
+                    clearDoneTasks()
+                    updateTray()
+                    reopenMenu(event)
+                  },
+                }
+              : {
+                  label: 'Clear Done Tasks',
+                  enabled: false,
+                }, // Disable if no done tasks
           ],
         }
       : { label: 'Clear', enabled: false }, // Disable if no tasks

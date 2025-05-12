@@ -61,7 +61,7 @@ export function clearTasks() {
 /**
  * Clears all done tasks from the list
  */
-export function clearDoneTasks() {
+export function clearCompletedTasks() {
   const tasks = loadTasks()
   const updatedTasks = tasks.filter((task) => !task.done)
   saveTasks(updatedTasks)

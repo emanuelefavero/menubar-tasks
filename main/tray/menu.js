@@ -3,7 +3,7 @@ import {
   loadTasks,
   addTask,
   clearTasks,
-  clearDoneTasks,
+  clearCompletedTasks,
   deleteTask,
   editTask,
   toggleTaskDone,
@@ -138,7 +138,7 @@ export function buildContextMenu(updateTray) {
                   label: 'Completed Tasks',
                   accelerator: 'CommandOrControl+Shift+D',
                   click: (_, __, event) => {
-                    clearDoneTasks()
+                    clearCompletedTasks()
                     updateTray()
                     reopenMenu(event)
                   },

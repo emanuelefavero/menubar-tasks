@@ -136,6 +136,7 @@ export function buildContextMenu(updateTray) {
             doneTasks.length > 0
               ? {
                   label: 'Clear Done',
+                  accelerator: 'CommandOrControl+Shift+D',
                   click: (_, __, event) => {
                     clearDoneTasks()
                     updateTray()

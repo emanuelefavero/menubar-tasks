@@ -32,7 +32,7 @@ export function createTutorialWindow() {
   tutorialWindow = new BrowserWindow({
     titleBarStyle: 'hidden', // Hide the title bar
     width: 600,
-    height: 480, // Adjusted for side-by-side layout
+    height: 464, // Adjusted for side-by-side layout
     title: 'MenuBar Tasks Tutorial',
     minimizable: false,
     maximizable: false,

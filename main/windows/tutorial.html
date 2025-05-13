@@ -20,6 +20,15 @@
         text-align: center;
       }
 
+      .header-icon {
+        width: 33px;
+        height: 33px;
+        vertical-align: middle;
+        margin-right: 8px;
+        position: relative;
+        top: -2px;
+      }
+
       .step-container {
         width: 100%;
         margin-bottom: 1rem;
@@ -128,7 +137,15 @@
 
     <main>
       <div class="tutorial-container">
-        <h2 class="tutorial-header">Welcome to MenuBar Tasks!</h2>
+        <h2 class="tutorial-header">
+          <img
+            src=""
+            class="header-icon"
+            id="header-icon"
+            alt="MenuBar Tasks Icon"
+          />
+          Welcome to MenuBar Tasks!
+        </h2>
 
         <!-- Step 1: Add a task -->
         <div class="step-container" id="step1">
@@ -240,6 +257,7 @@
       const prevButton = document.getElementById('prevButton')
       const nextButton = document.getElementById('nextButton')
 
+      const headerIcon = document.getElementById('header-icon')
       const menubarIcon = document.getElementById('menubar-icon')
       const step1Image = document.getElementById('step1-image')
       const step2Image = document.getElementById('step2-image')
@@ -250,6 +268,7 @@
 
       // Ask for images from main process
       ipcRenderer.invoke('get-tutorial-images').then((images) => {
+        headerIcon.src = images.appIcon
         menubarIcon.src = images.menubarIcon
         step1Image.src = images.step1
         step2Image.src = images.step2

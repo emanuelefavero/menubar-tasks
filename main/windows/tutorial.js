@@ -32,7 +32,7 @@ export function createTutorialWindow() {
   tutorialWindow = new BrowserWindow({
     titleBarStyle: 'hidden', // Hide the title bar
     width: 600,
-    height: 464, // Adjusted for side-by-side layout
+    height: 476, // Adjusted for side-by-side layout
     title: 'MenuBar Tasks Tutorial',
     minimizable: false,
     maximizable: false,
@@ -76,6 +76,7 @@ ipcMain.handle('get-tutorial-images', () => {
     : path.join(process.resourcesPath, 'images')
 
   return {
+    appIcon: path.join(basePath, 'icon.png'),
     menubarIcon: path.join(basePath, 'tutorial-menubar-icon.png'),
     step1: path.join(basePath, 'tutorial-step-1.png'),
     step2: path.join(basePath, 'tutorial-step-2.png'),

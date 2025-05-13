@@ -4,7 +4,6 @@ import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 import { showTutorialIfFirstLaunch } from './windows/tutorial.js'
 
-// ✅ Tutorial added: The tutorial shows users how to add, edit, and delete tasks when the app is first installed
 // TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
 // TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
 // TODO Add tests

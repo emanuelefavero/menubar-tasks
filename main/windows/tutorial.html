@@ -65,6 +65,10 @@
       .step-text {
         flex: 1;
         text-align: left;
+
+        & p:not(:last-child) {
+          margin-bottom: 1rem;
+        }
       }
 
       .step-image-container {
@@ -160,9 +164,8 @@
             <div class="step-content">
               <div class="step-text">
                 <p>
-                  To mark a task as done, click on the task in the menu and
-                  select
-                  <strong>"Mark as Done"</strong> from the submenu. ✅
+                  To mark a task as done, select the task in the menu and click
+                  <strong>"Mark as Done"</strong> in the submenu. ✅
                 </p>
                 <p>
                   You can also use keyboard shortcuts like
@@ -193,8 +196,7 @@
                 </p>
                 <p>
                   You can also use keyboard shortcuts like
-                  <strong>⌘⌥1</strong> (Command+Option+1) to delete your first
-                  task.
+                  <strong>⌘⌥1</strong>
                 </p>
                 <p>That's it! You're ready to use MenuBar Tasks. ✨</p>
               </div>

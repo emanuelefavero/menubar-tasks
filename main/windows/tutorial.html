@@ -9,6 +9,8 @@
         flex-direction: column;
         align-items: center;
         padding: 1rem;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .tutorial-header {
@@ -40,7 +42,7 @@
         background-color: var(--card);
         border: var(--card-border);
         border-radius: 0.35rem;
-        padding: 1.5rem 1rem;
+        padding: 1rem;
         text-align: center;
       }
 
@@ -52,16 +54,30 @@
       }
 
       .step-content {
-        margin-bottom: 0.5rem;
-        padding: 0 0.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+      }
+
+      .step-text {
+        flex: 1;
+        text-align: left;
+      }
+
+      .step-image-container {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
       }
 
       .step-image {
         width: 100%;
-        max-width: 300px;
+        max-width: 250px;
         border-radius: 0.5rem;
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
         border: 1px solid var(--card-border);
       }
 
@@ -115,20 +131,24 @@
           <div class="step">
             <div class="step-number">Step 1</div>
             <div class="step-content">
-              <p>Let's start by adding your first task! 📝</p>
-              <p>
-                Click on the
-                <img src="" class="menubar-icon" id="menubar-icon" /> icon in
-                your menubar and select <strong>"➕ Add Task"</strong> or use
-                the keyboard shortcut
-                <strong>⌘N</strong>
-              </p>
-              <img
-                src=""
-                alt="Adding a task"
-                class="step-image"
-                id="step1-image"
-              />
+              <div class="step-text">
+                <p>Let's start by adding your first task! 📝</p>
+                <p>
+                  Click on the
+                  <img src="" class="menubar-icon" id="menubar-icon" /> icon in
+                  your menubar and select <strong>"➕ Add Task"</strong> or use
+                  the keyboard shortcut
+                  <strong>⌘N</strong>
+                </p>
+              </div>
+              <div class="step-image-container">
+                <img
+                  src=""
+                  alt="Adding a task"
+                  class="step-image"
+                  id="step1-image"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -138,20 +158,25 @@
           <div class="step">
             <div class="step-number">Step 2</div>
             <div class="step-content">
-              <p>
-                To mark a task as done, click on the task in the menu and select
-                <strong>"Mark as Done"</strong> from the submenu. ✅
-              </p>
-              <p>
-                You can also use keyboard shortcuts like <strong>⌘1</strong> to
-                mark your first task as done!
-              </p>
-              <img
-                src=""
-                alt="Marking a task as done"
-                class="step-image"
-                id="step2-image"
-              />
+              <div class="step-text">
+                <p>
+                  To mark a task as done, click on the task in the menu and
+                  select
+                  <strong>"Mark as Done"</strong> from the submenu. ✅
+                </p>
+                <p>
+                  You can also use keyboard shortcuts like
+                  <strong>⌘1</strong> to mark your first task as done!
+                </p>
+              </div>
+              <div class="step-image-container">
+                <img
+                  src=""
+                  alt="Marking a task as done"
+                  class="step-image"
+                  id="step2-image"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -161,22 +186,26 @@
           <div class="step">
             <div class="step-number">Step 3</div>
             <div class="step-content">
-              <p>
-                To delete a task, click on the task in the menu and select
-                <strong>"Delete"</strong> from the submenu. 🗑️
-              </p>
-              <p>
-                You can also use keyboard shortcuts like
-                <strong>⌘⌥1</strong> (Command+Option+1) to delete your first
-                task.
-              </p>
-              <p>That's it! You're ready to use MenuBar Tasks. ✨</p>
-              <img
-                src=""
-                alt="Deleting a task"
-                class="step-image"
-                id="step3-image"
-              />
+              <div class="step-text">
+                <p>
+                  To delete a task, click on the task in the menu and select
+                  <strong>"Delete"</strong> from the submenu. 🗑️
+                </p>
+                <p>
+                  You can also use keyboard shortcuts like
+                  <strong>⌘⌥1</strong> (Command+Option+1) to delete your first
+                  task.
+                </p>
+                <p>That's it! You're ready to use MenuBar Tasks. ✨</p>
+              </div>
+              <div class="step-image-container">
+                <img
+                  src=""
+                  alt="Deleting a task"
+                  class="step-image"
+                  id="step3-image"
+                />
+              </div>
             </div>
           </div>
         </div>

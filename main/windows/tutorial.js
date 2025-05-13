@@ -82,15 +82,18 @@ ipcMain.handle('close-tutorial', () => {
  */
 export function showTutorialIfFirstLaunch() {
   const settings = loadSettings()
-  
+
   // If tutorialShown is false or doesn't exist in settings, this is first launch or user never saw tutorial
-  if (settings.tutorialShown === undefined || settings.tutorialShown === false) {
+  if (
+    settings.tutorialShown === undefined ||
+    settings.tutorialShown === false
+  ) {
     // Only set tutorialShown to false if it's undefined
     if (settings.tutorialShown === undefined) {
       settings.tutorialShown = false
       saveSettings(settings)
     }
-    
+
     console.log('Showing tutorial for first launch...')
     // Show tutorial after a short delay to ensure the app is fully loaded
     setTimeout(createTutorialWindow, 500)

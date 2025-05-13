@@ -95,36 +95,53 @@
     <main>
       <div class="tutorial-container">
         <h2 class="tutorial-header">Welcome to MenuBar Tasks!</h2>
-        
+
         <!-- Step 1: Add a task -->
         <div class="step-container" id="step1">
           <div class="step">
             <div class="step-number">Step 1</div>
             <div class="step-content">
               <p>Let's start by adding your first task! 📝</p>
-              <p>Click on the tray icon in your menubar and select <strong>"➕ Add Task"</strong> or use the keyboard shortcut <strong>⌘N</strong></p>
+              <p>
+                Click on the tray icon in your menubar and select
+                <strong>"➕ Add Task"</strong> or use the keyboard shortcut
+                <strong>⌘N</strong>
+              </p>
             </div>
           </div>
         </div>
-        
+
         <!-- Step 2: Mark task as done -->
         <div class="step-container hidden" id="step2">
           <div class="step">
             <div class="step-number">Step 2</div>
             <div class="step-content">
-              <p>To mark a task as done, click on the task in the menu and select <strong>"Mark as Done"</strong> from the submenu. ✅</p>
-              <p>You can also use keyboard shortcuts like <strong>⌘1</strong> to mark your first task as done!</p>
+              <p>
+                To mark a task as done, click on the task in the menu and select
+                <strong>"Mark as Done"</strong> from the submenu. ✅
+              </p>
+              <p>
+                You can also use keyboard shortcuts like <strong>⌘1</strong> to
+                mark your first task as done!
+              </p>
             </div>
           </div>
         </div>
-        
+
         <!-- Step 3: Delete a task -->
         <div class="step-container hidden" id="step3">
           <div class="step">
             <div class="step-number">Step 3</div>
             <div class="step-content">
-              <p>To delete a task, click on the task in the menu and select <strong>"Delete"</strong> from the submenu. 🗑️</p>
-              <p>You can also use keyboard shortcuts like <strong>⌘⌥1</strong> (Command+Option+1) to delete your first task.</p>
+              <p>
+                To delete a task, click on the task in the menu and select
+                <strong>"Delete"</strong> from the submenu. 🗑️
+              </p>
+              <p>
+                You can also use keyboard shortcuts like
+                <strong>⌘⌥1</strong> (Command+Option+1) to delete your first
+                task.
+              </p>
               <p>That's it! You're ready to use MenuBar Tasks. ✨</p>
             </div>
           </div>
@@ -173,17 +190,17 @@
 
         // Fade out current step
         steps[currentStep - 1].classList.add('fading')
-        
+
         setTimeout(() => {
           // Hide all steps and remove active dot class
-          steps.forEach(step => step.classList.add('hidden'))
-          dots.forEach(dot => dot.classList.remove('active'))
-          
+          steps.forEach((step) => step.classList.add('hidden'))
+          dots.forEach((dot) => dot.classList.remove('active'))
+
           // Show new step and add active dot class
           steps[newStep - 1].classList.remove('hidden')
           steps[newStep - 1].classList.remove('fading')
           dots[newStep - 1].classList.add('active')
-          
+
           // Update current step
           currentStep = newStep
           updateButtonStates()

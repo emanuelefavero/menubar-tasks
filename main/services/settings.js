@@ -9,6 +9,7 @@ const defaultSettings = {
   maxTasks: 33, // Default to non-scrolling amount
   trayDisplay: 'icon', // Can be 'icon', 'lastTask', 'lastUndoneTask' or 'appName'
   openAtLogin: false, // Controls whether app starts at login
+  tutorialShown: false, // Controls whether the tutorial has been shown
 }
 
 export function loadSettings() {

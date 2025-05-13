@@ -163,6 +163,15 @@ export function buildContextMenu(updateTray) {
           },
         },
         {
+          label: 'Show Tutorial',
+          click: () => {
+            // Import and use createTutorialWindow dynamically to avoid circular dependencies
+            import('../windows/tutorial.js').then(({ createTutorialWindow }) => {
+              createTutorialWindow()
+            })
+          },
+        },
+        {
           label: 'Customer Support',
           click: () => {
             shell.openExternal(

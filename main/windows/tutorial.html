@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MenuBar Tasks Tutorial</title>
+    <link rel="stylesheet" href="styles/globals.css" />
+    <style>
+      .tutorial-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+
+      .tutorial-header {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .step-container {
+        width: 100%;
+        margin-bottom: 1rem;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+
+      .step-container.hidden {
+        display: none;
+      }
+
+      .step-container.fading {
+        opacity: 0;
+      }
+
+      .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--card);
+        border: var(--card-border);
+        border-radius: 0.35rem;
+        padding: 1.5rem 1rem;
+        text-align: center;
+      }
+
+      .step-number {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--link);
+      }
+
+      .step-content {
+        margin-bottom: 1.5rem;
+      }
+
+      .step-image {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--card-border);
+      }
+
+      .navigation {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .navigation button {
+        min-width: 5rem;
+      }
+
+      .progress-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--input-border);
+        transition: background-color 0.3s;
+      }
+
+      .dot.active {
+        background-color: var(--link);
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div class="tutorial-container">
+        <h2 class="tutorial-header">Welcome to MenuBar Tasks!</h2>
+        
+        <!-- Step 1: Add a task -->
+        <div class="step-container" id="step1">
+          <div class="step">
+            <div class="step-number">Step 1</div>
+            <div class="step-content">
+              <p>Let's start by adding your first task!</p>
+              <p>Click on the tray icon in your menubar and select <strong>"➕ Add Task"</strong> or use the keyboard shortcut <strong>⌘N</strong></p>
+            </div>
+            <img src="https://placehold.co/300x200" alt="Adding a task" class="step-image" id="step1-image">
+          </div>
+        </div>
+        
+        <!-- Step 2: Mark task as done -->
+        <div class="step-container hidden" id="step2">
+          <div class="step">
+            <div class="step-number">Step 2</div>
+            <div class="step-content">
+              <p>To mark a task as done, click on the task in the menu and select <strong>"Mark as Done"</strong> from the submenu.</p>
+              <p>You can also use keyboard shortcuts like <strong>⌘1</strong> to mark your first task as done!</p>
+            </div>
+            <img src="https://placehold.co/300x200" alt="Marking a task as done" class="step-image" id="step2-image">
+          </div>
+        </div>
+        
+        <!-- Step 3: Delete a task -->
+        <div class="step-container hidden" id="step3">
+          <div class="step">
+            <div class="step-number">Step 3</div>
+            <div class="step-content">
+              <p>To delete a task, click on the task in the menu and select <strong>"Delete"</strong> from the submenu.</p>
+              <p>You can also use keyboard shortcuts like <strong>⌘⌥1</strong> (Command+Option+1) to delete your first task.</p>
+              <p>That's it! You're ready to use MenuBar Tasks.</p>
+            </div>
+            <img src="https://placehold.co/300x200" alt="Deleting a task" class="step-image" id="step3-image">
+          </div>
+        </div>
+
+        <!-- Navigation dots -->
+        <div class="progress-dots">
+          <div class="dot active" id="dot1"></div>
+          <div class="dot" id="dot2"></div>
+          <div class="dot" id="dot3"></div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <div class="navigation">
+          <button class="secondary" id="prevButton" disabled>Previous</button>
+          <button class="primary" id="nextButton">Next</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const { ipcRenderer } = require('electron')
+
+      const step1 = document.getElementById('step1')
+      const step2 = document.getElementById('step2')
+      const step3 = document.getElementById('step3')
+      const dot1 = document.getElementById('dot1')
+      const dot2 = document.getElementById('dot2')
+      const dot3 = document.getElementById('dot3')
+      const prevButton = document.getElementById('prevButton')
+      const nextButton = document.getElementById('nextButton')
+      
+      const step1Image = document.getElementById('step1-image')
+      const step2Image = document.getElementById('step2-image')
+      const step3Image = document.getElementById('step3-image')
+
+      let currentStep = 1
+      const totalSteps = 3
+
+      // Ask for images from main process
+      ipcRenderer.invoke('get-tutorial-images').then(images => {
+        step1Image.src = images.step1
+        step2Image.src = images.step2
+        step3Image.src = images.step3
+      })
+
+      // Update button states based on current step
+      function updateButtonStates() {
+        prevButton.disabled = currentStep === 1
+        nextButton.textContent = currentStep === totalSteps ? 'Finish' : 'Next'
+      }
+
+      // Update active step
+      function updateStep(newStep) {
+        const steps = [step1, step2, step3]
+        const dots = [dot1, dot2, dot3]
+
+        // Fade out current step
+        steps[currentStep - 1].classList.add('fading')
+        
+        setTimeout(() => {
+          // Hide all steps and remove active dot class
+          steps.forEach(step => step.classList.add('hidden'))
+          dots.forEach(dot => dot.classList.remove('active'))
+          
+          // Show new step and add active dot class
+          steps[newStep - 1].classList.remove('hidden')
+          steps[newStep - 1].classList.remove('fading')
+          dots[newStep - 1].classList.add('active')
+          
+          // Update current step
+          currentStep = newStep
+          updateButtonStates()
+        }, 300) // Match the CSS transition duration
+      }
+
+      // Event listeners for navigation buttons
+      prevButton.addEventListener('click', () => {
+        if (currentStep > 1) {
+          updateStep(currentStep - 1)
+        }
+      })
+
+      nextButton.addEventListener('click', () => {
+        if (currentStep < totalSteps) {
+          updateStep(currentStep + 1)
+        } else {
+          // Close tutorial window
+          ipcRenderer.invoke('close-tutorial')
+        }
+      })
+
+      // Event listeners for dots
+      dot1.addEventListener('click', () => updateStep(1))
+      dot2.addEventListener('click', () => updateStep(2))
+      dot3.addEventListener('click', () => updateStep(3))
+
+      // Initialize
+      updateButtonStates()
+    </script>
+  </body>
+</html>

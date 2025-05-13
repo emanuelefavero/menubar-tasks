@@ -2,9 +2,10 @@ import { app } from 'electron'
 import { initializeTray } from './tray/tray.js'
 import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
+import { showTutorialIfFirstLaunch } from './windows/tutorial.js'
 
-// TODO Try to add a tutorial to the app that will show the user how to use the app. The tutorial should be shown when the app is first installed, and should not be shown again after that unless the user clicks a "Show Tutorial" button in the "App" submenu. If the tutorial is ugly, remove it and follow next TODO 👇
-// TODO Add initial tasks (only if the tutorial is not added), a list of tasks to show when the app is first installed that will teach the user how to use the app. Make sure to only add these tasks when the app is first installed, and never again.
+// ✅ Tutorial added: The tutorial shows users how to add, edit, and delete tasks when the app is first installed
+// TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
 // TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
 // TODO Add tests
 // TODO Add notarization with electron builder or npm electron-notarize @see https://kilianvalkhof.com/2019/electron/notarizing-your-electron-application/ and https://www.electron.build/code-signing-mac.html
@@ -43,6 +44,8 @@ app.whenReady().then(() => {
   initializeTray()
   // Set up auto-launch
   updateAutoLaunch()
+  // Show tutorial on first launch
+  showTutorialIfFirstLaunch()
 })
 
 // Listen for settings changes

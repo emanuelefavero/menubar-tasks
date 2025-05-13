@@ -31,8 +31,8 @@ export function createTutorialWindow() {
 
   tutorialWindow = new BrowserWindow({
     titleBarStyle: 'hidden', // Hide the title bar
-    width: 400,
-    height: 400, // Reduced height since images were removed
+    width: 420,
+    height: 520, // Increased height to accommodate images
     title: 'MenuBar Tasks Tutorial',
     minimizable: false,
     maximizable: false,
@@ -68,7 +68,20 @@ export function createTutorialWindow() {
   })
 }
 
-// Images have been removed from tutorial
+// IPC handler to get tutorial images
+ipcMain.handle('get-tutorial-images', () => {
+  const isDev = !app.isPackaged
+  const basePath = isDev
+    ? path.join(app.getAppPath(), 'images')
+    : path.join(process.resourcesPath, 'images')
+
+  return {
+    menubarIcon: path.join(basePath, 'tutorial-menubar-icon.png'),
+    step1: path.join(basePath, 'tutorial-step-1.png'),
+    step2: path.join(basePath, 'tutorial-step-2.png'),
+    step3: path.join(basePath, 'tutorial-step-3.png'),
+  }
+})
 
 // IPC handler to close the tutorial window
 ipcMain.handle('close-tutorial', () => {

@@ -56,7 +56,21 @@
         padding: 0 0.5rem;
       }
 
-      /* Removing step-image styling */
+      .step-image {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid var(--card-border);
+      }
+
+      .menubar-icon {
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        display: inline-block;
+      }
 
       .navigation {
         display: flex;
@@ -103,10 +117,18 @@
             <div class="step-content">
               <p>Let's start by adding your first task! 📝</p>
               <p>
-                Click on the tray icon in your menubar and select
-                <strong>"➕ Add Task"</strong> or use the keyboard shortcut
+                Click on the
+                <img src="" class="menubar-icon" id="menubar-icon" /> icon in
+                your menubar and select <strong>"➕ Add Task"</strong> or use
+                the keyboard shortcut
                 <strong>⌘N</strong>
               </p>
+              <img
+                src=""
+                alt="Adding a task"
+                class="step-image"
+                id="step1-image"
+              />
             </div>
           </div>
         </div>
@@ -124,6 +146,12 @@
                 You can also use keyboard shortcuts like <strong>⌘1</strong> to
                 mark your first task as done!
               </p>
+              <img
+                src=""
+                alt="Marking a task as done"
+                class="step-image"
+                id="step2-image"
+              />
             </div>
           </div>
         </div>
@@ -143,6 +171,12 @@
                 task.
               </p>
               <p>That's it! You're ready to use MenuBar Tasks. ✨</p>
+              <img
+                src=""
+                alt="Deleting a task"
+                class="step-image"
+                id="step3-image"
+              />
             </div>
           </div>
         </div>
@@ -174,8 +208,21 @@
       const prevButton = document.getElementById('prevButton')
       const nextButton = document.getElementById('nextButton')
 
+      const menubarIcon = document.getElementById('menubar-icon')
+      const step1Image = document.getElementById('step1-image')
+      const step2Image = document.getElementById('step2-image')
+      const step3Image = document.getElementById('step3-image')
+
       let currentStep = 1
       const totalSteps = 3
+
+      // Ask for images from main process
+      ipcRenderer.invoke('get-tutorial-images').then((images) => {
+        menubarIcon.src = images.menubarIcon
+        step1Image.src = images.step1
+        step2Image.src = images.step2
+        step3Image.src = images.step3
+      })
 
       // Update button states based on current step
       function updateButtonStates() {

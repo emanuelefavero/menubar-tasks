@@ -32,7 +32,7 @@ export function createTutorialWindow() {
   tutorialWindow = new BrowserWindow({
     titleBarStyle: 'hidden', // Hide the title bar
     width: 400,
-    height: 500, // Increased height for better content display
+    height: 400, // Reduced height since images were removed
     title: 'MenuBar Tasks Tutorial',
     minimizable: false,
     maximizable: false,
@@ -68,29 +68,7 @@ export function createTutorialWindow() {
   })
 }
 
-// IPC handler to get tutorial images
-ipcMain.handle('get-tutorial-images', () => {
-  const isDev = !app.isPackaged
-  const basePath = isDev
-    ? path.join(app.getAppPath(), 'images')
-    : path.join(process.resourcesPath, 'images')
-
-  // For local dev environment, use the SVGs
-  if (fs.existsSync(path.join(basePath, 'tutorial-add-task.svg'))) {
-    return {
-      step1: path.join(basePath, 'tutorial-add-task.svg'),
-      step2: path.join(basePath, 'tutorial-mark-done.svg'),
-      step3: path.join(basePath, 'tutorial-delete-task.svg'),
-    }
-  }
-  
-  // Fallback to app icon if SVG files aren't available or for production builds
-  return {
-    step1: path.join(basePath, 'icon.png'),
-    step2: path.join(basePath, 'icon.png'),
-    step3: path.join(basePath, 'icon.png'),
-  }
-})
+// Images have been removed from tutorial
 
 // IPC handler to close the tutorial window
 ipcMain.handle('close-tutorial', () => {

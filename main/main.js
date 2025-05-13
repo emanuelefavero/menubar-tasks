@@ -5,7 +5,6 @@ import AutoLaunch from 'auto-launch'
 import { showTutorialIfFirstLaunch } from './windows/tutorial.js'
 
 // TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
-// TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)
 // TODO Add tests
 // TODO Add notarization with electron builder or npm electron-notarize @see https://kilianvalkhof.com/2019/electron/notarizing-your-electron-application/ and https://www.electron.build/code-signing-mac.html
 

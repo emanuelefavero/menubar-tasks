@@ -10,6 +10,10 @@ button {
   &:focus-visible {
     outline: none;
   }
+
+  &[disabled] {
+    opacity: 0.5;
+  }
 }
 
 button.secondary {
@@ -22,6 +26,11 @@ button.secondary {
     background-color: var(--button-active);
     border-top: var(--button-border-top-active);
   }
+
+  &[disabled] {
+    background-color: var(--button);
+    border-top: var(--button-border-top);
+  }
 }
 
 button.primary {
@@ -33,6 +42,11 @@ button.primary {
   &:active {
     background: var(--button-primary-active);
     border-top: var(--button-primary-border-top-active);
+  }
+
+  &[disabled] {
+    background: var(--button-primary);
+    border-top: var(--button-primary-border-top);
   }
 }
 

@@ -4,6 +4,7 @@ import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 import { showTutorialIfFirstLaunch } from './windows/tutorial.js'
 
+// TODO When the user clicks on the tutorial step 1 image, automatically open and focus on the app from the tray icon
 // TODO Add a keyboard shortcut to focus on the app when the app is running
 // TODO Add a setting to change and enable the shortcut
 // TODO Add multiple language support (English, German, French, Spanish, Italian, Portuguese, Russian, Chinese, Japanese, Korean)

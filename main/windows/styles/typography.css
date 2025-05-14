@@ -17,6 +17,8 @@ label {
 }
 
 label.title {
+  display: inline-block;
   font-weight: 600;
   padding-left: 0.42rem;
+  padding-bottom: 0.125rem;
 }

@@ -32,7 +32,7 @@ export function createPromptWindow(title = 'Add Task', value = '') {
     promptWindow = new BrowserWindow({
       titleBarStyle: 'hidden', // Hide the title bar
       width: 400,
-      height: 215,
+      height: 219,
       title,
       minimizable: false,
       maximizable: false,

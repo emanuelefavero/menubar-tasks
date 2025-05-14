@@ -76,6 +76,12 @@
         & p:not(:last-child) {
           margin-bottom: 1rem;
         }
+
+        & p.note {
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+          font-style: italic;
+        }
       }
 
       .step-image-container {
@@ -165,6 +171,10 @@
                   <strong>"➕ Add Task"</strong> or use the keyboard shortcut
                   <strong>⌘N</strong>
                 </p>
+
+                <p class="note">
+                  Note: Keyboard shortcuts work only when the app is in focus
+                </p>
               </div>
               <div class="step-image-container">
                 <img
@@ -187,12 +197,17 @@
               <div class="step-text">
                 <p>
                   To mark a task as done, select the task and click on
-                  <strong>"Mark as Done"</strong> in the submenu. ✅
+                  <strong>"Mark as Done"</strong> in the submenu ✅
                 </p>
                 <p>
                   You can also use keyboard shortcuts like
-                  <strong>⌘1</strong>
-                  <i>(⌘1 for the first task, ⌘2 for the second, etc.)</i>
+                  <strong>⌘1</strong>, <strong>⌘2</strong>, etc. to mark tasks
+                  as done
+                </p>
+
+                <p class="note">
+                  Note: Use <strong>⌘1</strong> for the first task,
+                  <strong>⌘2</strong> for the second, etc.
                 </p>
               </div>
               <div class="step-image-container">
@@ -216,13 +231,15 @@
               <div class="step-text">
                 <p>
                   To delete a task, select the task and click on
-                  <strong>"Delete"</strong> in the submenu. 🗑️
+                  <strong>"Delete"</strong> in the submenu 🗑️
                 </p>
                 <p>
                   You can also use keyboard shortcuts like
                   <strong>⌘⌥1</strong>
                 </p>
-                <p>That's it! You're ready to use MenuBar Tasks. ✨</p>
+                <p class="note">
+                  That's it! You're ready to use MenuBar Tasks ✨
+                </p>
               </div>
               <div class="step-image-container">
                 <img

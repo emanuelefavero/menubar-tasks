@@ -2,6 +2,9 @@
   --background: rgb(234, 235, 237);
   --foreground: rgb(39, 39, 39);
 
+  /* TEXT */
+  --text-secondary: rgb(118, 118, 119);
+
   /* CARD */
   --card: rgb(230, 231, 232);
   --card-border: 1px solid rgb(222, 223, 224);
@@ -63,6 +66,9 @@
   :root {
     --background: rgb(37, 39, 42);
     --foreground: rgb(222, 222, 223);
+
+    /* TEXT */
+    --text-secondary: rgb(157, 158, 159);
 
     /* CARD */
     --card: rgb(40, 42, 44);

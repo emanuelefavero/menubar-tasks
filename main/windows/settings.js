@@ -28,7 +28,7 @@ export function createSettingsWindow() {
   settingsWindow = new BrowserWindow({
     titleBarStyle: 'hidden', // Hide the title bar
     width: 420,
-    height: 300,
+    height: 296,
     title: 'Settings',
     minimizable: false,
     maximizable: false,

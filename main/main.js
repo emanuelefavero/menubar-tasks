@@ -4,7 +4,6 @@ import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 import { showTutorialIfFirstLaunch } from './windows/tutorial.js'
 
-// TODO focus on the app when the tutorial first launches so the user can see the tray icon and the app while reading the tutorial
 // TODO Add red circles to the tutorial images to indicate the steps
 // TODO When the user clicks on the tutorial step 1 image, automatically open and focus on the app from the tray icon
 // TODO Add a keyboard shortcut to focus on the app when the app is running

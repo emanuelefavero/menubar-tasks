@@ -50,6 +50,7 @@ export function createTutorialWindow() {
 
   // Show window only when content is ready to prevent flash
   tutorialWindow.once('ready-to-show', () => {
+    reopenMenu({ preventDefault: () => {} }) // ? Fake an event to reopen menu
     tutorialWindow.show()
   })
 

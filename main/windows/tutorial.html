@@ -290,6 +290,19 @@
       let currentStep = 1
       const totalSteps = 3
 
+      // Add click event listeners to step images to open menu
+      step1Image.addEventListener('click', () => {
+        ipcRenderer.invoke('reopen-menu')
+      })
+
+      step2Image.addEventListener('click', () => {
+        ipcRenderer.invoke('reopen-menu')
+      })
+
+      step3Image.addEventListener('click', () => {
+        ipcRenderer.invoke('reopen-menu')
+      })
+
       // Ask for images from main process
       ipcRenderer.invoke('get-tutorial-images').then((images) => {
         headerIcon.src = images.appIcon

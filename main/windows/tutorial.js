@@ -92,6 +92,11 @@ ipcMain.handle('close-tutorial', () => {
   }
 })
 
+// IPC handler to reopen the menu when step images are clicked
+ipcMain.handle('reopen-menu', () => {
+  reopenMenu({ preventDefault: () => {} }) // Fake an event to reopen menu
+})
+
 /**
  * Checks if the tutorial should be shown (first launch) and shows it if needed
  */

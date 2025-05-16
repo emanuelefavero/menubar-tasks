@@ -5,7 +5,6 @@ import AutoLaunch from 'auto-launch'
 import { showTutorialIfFirstLaunch } from './windows/tutorial.js'
 import { reopenMenu } from './utils/menu.js'
 
-// TODO Add red circles to the tutorial images to indicate the steps
 // TODO Add a keyboard shortcut to focus on the app when the app is running
 // TODO Add a setting to change and enable the shortcut
 // TODO Add three tasks to show when the application is first installed

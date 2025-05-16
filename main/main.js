@@ -3,9 +3,9 @@ import { initializeTray } from './tray/tray.js'
 import { loadSettings } from './services/settings.js'
 import AutoLaunch from 'auto-launch'
 import { showTutorialIfFirstLaunch } from './windows/tutorial.js'
+import { reopenMenu } from './utils/menu.js'
 
 // TODO Add red circles to the tutorial images to indicate the steps
-// TODO When the user clicks on the tutorial step 1 image, automatically open and focus on the app from the tray icon
 // TODO Add a keyboard shortcut to focus on the app when the app is running
 // TODO Add a setting to change and enable the shortcut
 // TODO Add three tasks to show when the application is first installed
@@ -49,6 +49,11 @@ app.whenReady().then(() => {
   updateAutoLaunch()
   // Show tutorial on first launch
   showTutorialIfFirstLaunch()
+
+  // Automatically open the app menu after a small delay
+  setTimeout(() => {
+    reopenMenu({ preventDefault: () => {} }) // Fake an event to open menu
+  }, 200) // Minimal delay to ensure initialization
 })
 
 // Listen for settings changes
